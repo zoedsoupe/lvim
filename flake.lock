@@ -51,6 +51,23 @@
         "type": "github"
       }
     },
+    "nvim-surround": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680469684,
+        "narHash": "sha256-XKYi8JeTiXlEsGw7hjYi52W5PCfbvbTfOAqzVgZTyBQ=",
+        "owner": "kylechui",
+        "repo": "nvim-surround",
+        "rev": "e6047128e57c1aff1566fb9f627521d2887fc77a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kylechui",
+        "ref": "v2.0.5",
+        "repo": "nvim-surround",
+        "type": "github"
+      }
+    },
     "plenary-nvim": {
       "flake": false,
       "locked": {
@@ -73,6 +90,7 @@
         "flake-utils": "flake-utils",
         "lazy-nvim": "lazy-nvim",
         "nixpkgs": "nixpkgs",
+        "nvim-surround": "nvim-surround",
         "plenary-nvim": "plenary-nvim"
       }
     },

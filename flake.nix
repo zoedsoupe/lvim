@@ -11,6 +11,11 @@
       flake = false;
     };
 
+    nvim-surround = {
+      url = "github:kylechui/nvim-surround/v2.0.5";
+      flake = false;
+    };
+
     plenary-nvim = {
       url = "github:nvim-lua/plenary.nvim/v0.1.3";
       flake = false;
@@ -31,7 +36,11 @@
           config.allowUnfree = true;
         };
 
-        config = { };
+        config = {
+          lvim = {
+            surround.enable = true;
+          };
+        };
       in
       rec {
         apps = rec {
