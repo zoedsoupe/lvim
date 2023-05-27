@@ -34,6 +34,22 @@
         "type": "github"
       }
     },
+    "kommentary": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672983049,
+        "narHash": "sha256-N4n5tjNB1yX/QxH+t5aG0VxNwZhUJejv0b5V62WEKDU=",
+        "owner": "b3nj5m1n",
+        "repo": "kommentary",
+        "rev": "3a80117148c6798972bb69414423311ab151d368",
+        "type": "github"
+      },
+      "original": {
+        "owner": "b3nj5m1n",
+        "repo": "kommentary",
+        "type": "github"
+      }
+    },
     "lazy-nvim": {
       "flake": false,
       "locked": {
@@ -153,6 +169,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "indent-blankline": "indent-blankline",
+        "kommentary": "kommentary",
         "lazy-nvim": "lazy-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-autopairs": "nvim-autopairs",

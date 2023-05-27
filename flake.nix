@@ -11,6 +11,11 @@
       flake = false;
     };
 
+    kommentary = {
+      url = "github:b3nj5m1n/kommentary";
+      flake = false;
+    };
+
     lazy-nvim = {
       url = "github:folke/lazy.nvim/v9.20.0";
       flake = false;
@@ -79,6 +84,7 @@
         config = {
           lvim = {
             autopair.enable = true;
+            comments.enable = true;
             surround.enable = true;
             telescope.enable = true;
             theme = {
