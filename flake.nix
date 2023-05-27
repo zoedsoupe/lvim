@@ -26,6 +26,11 @@
       flake = false;
     };
 
+    telescope-nvim = {
+      url = "github:nvim-telescope/telescope.nvim";
+      flake = false;
+    };
+
     theme-catppuccin = {
       url = "github:catppuccin/nvim/v1.2.0";
       flake = false;
@@ -60,6 +65,7 @@
           lvim = {
             autopair.enable = true;
             surround.enable = true;
+            telescope.enable = true;
             theme = {
               enable = true;
               name = "catppuccin";

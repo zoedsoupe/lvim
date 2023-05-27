@@ -7,6 +7,7 @@ in
   withPlugins = cond: plugins: if cond then plugins else [ ];
   writeIf = cond: msg: if cond then msg else "";
   boolStr = cond: if cond then "true" else "false";
+  withAttrSet = cond: attrSet: if cond then attrSet else { };
 
   mkNeovim = { config }:
     let

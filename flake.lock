@@ -109,6 +109,7 @@
         "nvim-autopairs": "nvim-autopairs",
         "nvim-surround": "nvim-surround",
         "plenary-nvim": "plenary-nvim",
+        "telescope-nvim": "telescope-nvim",
         "theme-catppuccin": "theme-catppuccin",
         "theme-doom-one": "theme-doom-one",
         "theme-rose-pine": "theme-rose-pine"
@@ -126,6 +127,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "telescope-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684993479,
+        "narHash": "sha256-FIAN3NQrD7PhrtCKnlrr//bZ259qcvGogL45nC8tLpw=",
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "rev": "6d3fbffe426794296a77bb0b37b6ae0f4f14f807",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
         "type": "github"
       }
     },
