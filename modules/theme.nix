@@ -11,16 +11,17 @@ in
     enable = mkEnableOption "Enable theme customization";
     name = mkOption {
       description = "Name of the theme to use";
-      type = types.enum ["doom-one" "rose-pine" "catppuccin"];
+      type = types.enum [ "doom-one" "rose-pine" "catppuccin" ];
       default = "catppuccin";
     };
     flavour = mkOption {
       description = "Theme style";
-      type = 
+      type =
         let
           rp = enum' "rose-pine" [ "main" "moon" "dawn" ];
           cp = types.enum [ "frappe" "latte" "macchiato" "mocha" ];
-        in rp cp;
+        in
+        rp cp;
       default = "macchiato";
     };
   };
@@ -40,25 +41,25 @@ in
       doom_one_plugin_telescope = true;
     };
     rawConfig = ''
-    ${writeIf (cfg.name == "catppuccin") ''
-    -- CATPPUCCIN THEME
-    require('catppuccin').setup({
-      flavour = "${cfg.flavour}"
-    })
-    vim.cmd('colo catppuccin')
-    -- END CATPPUCCIN THEME
-    ''}
+      ${writeIf (cfg.name == "catppuccin") ''
+      -- CATPPUCCIN THEME
+      require('catppuccin').setup({
+        flavour = "${cfg.flavour}"
+      })
+      vim.cmd('colo catppuccin')
+      -- END CATPPUCCIN THEME
+      ''}
 
-    ${writeIf (cfg.name == "doom-one") "vim.cmd('colo doom-one')"}
+      ${writeIf (cfg.name == "doom-one") "vim.cmd('colo doom-one')"}
 
-    ${writeIf (cfg.name == "rose-pine") ''
-    -- ROSE PINE THEME
-    require('rose-pine').setup({
-      darkvariant = "${cfg.flavour}"
-    })
-    vim.cmd('colo rose-pine')
-    -- END ROSE PINE THEME
-    ''}
+      ${writeIf (cfg.name == "rose-pine") ''
+      -- ROSE PINE THEME
+      require('rose-pine').setup({
+        darkvariant = "${cfg.flavour}"
+      })
+      vim.cmd('colo rose-pine')
+      -- END ROSE PINE THEME
+      ''}
     '';
   };
 }

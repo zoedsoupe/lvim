@@ -39,33 +39,33 @@ in
   };
 
   config.lvim = mkIf cfg.enable {
-      startPlugins = with pkgs.neovimPlugins; (
-        (withPlugins cfg.icons.enable [ nvim-web-devicons ]) ++
-        (withPlugins cfg.cursorWordline.enable [ nvim-cursorline ]) ++
-        (withPlugins cfg.indentBlankline.enable [ indent-blankline ])
-      );
-      globals = mkIf cfg.cursorWordline.enable {
-        cursorline_timeout = toString cfg.cursorWordline.lineTimeout;
-      };
-      rawConfig = ''
-        ${writeIf cfg.indentBlankline.enable ''
-          vim.wo.colorcolumn = "99999"
-          vim.opt.list = true
-          ${writeIf (cfg.indentBlankline.eolChar != "") ''
-          vim.opt.listchars:append({ eol = "${cfg.indentBlankline.eolChar}" })
-          ''}
-
-          ${writeIf (cfg.indentBlankline.fillChar != "") ''
-          vim.opt.listchars:append({ space = "${cfg.indentBlankline.fillChar}"})
-          ''}
-
-          require('indent_blankline').setup {
-            list = true,
-            char = "${cfg.indentBlankline.listChar}",
-            show_current_context = ${boolToString cfg.indentBlankline.showCurrContext},
-            show_end_of_line = true,
-          }
-        ''}
-      '';
+    startPlugins = with pkgs.neovimPlugins; (
+      (withPlugins cfg.icons.enable [ nvim-web-devicons ]) ++
+      (withPlugins cfg.cursorWordline.enable [ nvim-cursorline ]) ++
+      (withPlugins cfg.indentBlankline.enable [ indent-blankline ])
+    );
+    globals = mkIf cfg.cursorWordline.enable {
+      cursorline_timeout = toString cfg.cursorWordline.lineTimeout;
     };
+    rawConfig = ''
+      ${writeIf cfg.indentBlankline.enable ''
+        vim.wo.colorcolumn = "99999"
+        vim.opt.list = true
+        ${writeIf (cfg.indentBlankline.eolChar != "") ''
+        vim.opt.listchars:append({ eol = "${cfg.indentBlankline.eolChar}" })
+        ''}
+
+        ${writeIf (cfg.indentBlankline.fillChar != "") ''
+        vim.opt.listchars:append({ space = "${cfg.indentBlankline.fillChar}"})
+        ''}
+
+        require('indent_blankline').setup {
+          list = true,
+          char = "${cfg.indentBlankline.listChar}",
+          show_current_context = ${boolToString cfg.indentBlankline.showCurrContext},
+          show_end_of_line = true,
+        }
+      ''}
+    '';
+  };
 }

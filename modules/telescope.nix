@@ -23,22 +23,22 @@ in
       "<leader>fvx" = "<cmd> Telescope git_stash<CR>";
     };
     rawConfig = ''
-    -- TELESCOPE CONFIG
-    require('telescope').setup({
-      defaults = {
-        vimgrep_arguments = {
-          "${pkgs.silver-searcher}/bin/ag",
-          "--smart-case",
-          "--nocolor",
-          "--noheading",
-          "--column",
-        },
-        pickers = {
-          find_command = { "${pkgs.fd}/bin/fd" }
+      -- TELESCOPE CONFIG
+      require('telescope').setup({
+        defaults = {
+          vimgrep_arguments = {
+            "${pkgs.silver-searcher}/bin/ag",
+            "--smart-case",
+            "--nocolor",
+            "--noheading",
+            "--column",
+          },
+          pickers = {
+            find_command = { "${pkgs.fd}/bin/fd" }
+          }
         }
-      }
-    })
-    -- END TELESCOPE CONFIG
+      })
+      -- END TELESCOPE CONFIG
     '';
   };
 }

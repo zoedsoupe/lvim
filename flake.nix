@@ -46,6 +46,11 @@
       flake = false;
     };
 
+    gitsigns-nvim = {
+      url = "github:/lewis6991/gitsigns.nvim";
+      flake = false;
+    };
+
     telescope-nvim = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
@@ -85,6 +90,10 @@
           lvim = {
             autopair.enable = true;
             comments.enable = true;
+            git = {
+              enable = true;
+              gitsigns.enable = true;
+            };
             surround.enable = true;
             telescope.enable = true;
             theme = {
@@ -97,7 +106,7 @@
               cursorWordline.enable = true;
               indentBlankline = {
                 enable = true;
-                
+
               };
             };
           };
