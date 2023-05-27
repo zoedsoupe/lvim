@@ -31,6 +31,16 @@
       flake = false;
     };
 
+    nvim-cmp = {
+      url = "github:hrsh7th/nvim-cmp";
+      flake = false;
+    };
+
+    nvim-cmp-path = {
+      url = "github:hrsh7th/cmp-path";
+      flake = false;
+    };
+
     nvim-surround = {
       url = "github:kylechui/nvim-surround/v2.0.5";
       flake = false;
@@ -90,6 +100,10 @@
           lvim = {
             autopair.enable = true;
             comments.enable = true;
+            completion = {
+              enable = true;
+              path.enable = true;
+            };
             git = {
               enable = true;
               gitsigns.enable = true;

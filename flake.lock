@@ -115,6 +115,38 @@
         "type": "github"
       }
     },
+    "nvim-cmp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685196406,
+        "narHash": "sha256-1iznAa7rchKrCIgyh6fRgkwbK3M/xFdduYlnwTAkp8o=",
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
+        "rev": "1088b3743b83ffd8973ad65e6b5fed010da0ffd2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
+        "type": "github"
+      }
+    },
+    "nvim-cmp-path": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664784283,
+        "narHash": "sha256-thppiiV3wjIaZnAXmsh7j3DUc6ceSCvGzviwFUnoPaI=",
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
+        "rev": "91ff86cd9c29299a64f968ebb45846c485725f23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
+        "type": "github"
+      }
+    },
     "nvim-cursorline": {
       "flake": false,
       "locked": {
@@ -190,6 +222,8 @@
         "lazy-nvim": "lazy-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-autopairs": "nvim-autopairs",
+        "nvim-cmp": "nvim-cmp",
+        "nvim-cmp-path": "nvim-cmp-path",
         "nvim-cursorline": "nvim-cursorline",
         "nvim-surround": "nvim-surround",
         "nvim-web-devicons": "nvim-web-devicons",
