@@ -108,7 +108,10 @@
         "nixpkgs": "nixpkgs",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-surround": "nvim-surround",
-        "plenary-nvim": "plenary-nvim"
+        "plenary-nvim": "plenary-nvim",
+        "theme-catppuccin": "theme-catppuccin",
+        "theme-doom-one": "theme-doom-one",
+        "theme-rose-pine": "theme-rose-pine"
       }
     },
     "systems": {
@@ -123,6 +126,56 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "theme-catppuccin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684424310,
+        "narHash": "sha256-ALeldtRjaFcEbIfAMiPY85aUPFTk+M8LCdJeGz1kqns=",
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "rev": "8338b02e9a8ffcb999520de7f15943712618760f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "ref": "v1.2.0",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "theme-doom-one": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1671922186,
+        "narHash": "sha256-lfs1ZfoLI/AP+iwtnSO0OlMGTXesr0G8ncW0lLMEZH8=",
+        "owner": "NTBBloodbath",
+        "repo": "doom-one.nvim",
+        "rev": "a43528cbd7908ccec7af4587ec8e18be149095bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NTBBloodbath",
+        "repo": "doom-one.nvim",
+        "type": "github"
+      }
+    },
+    "theme-rose-pine": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679528678,
+        "narHash": "sha256-j5eUYEwFjWoIkncsh2mtpnKC72CD9VUa0bEohxBymsc=",
+        "owner": "rose-pine",
+        "repo": "neovim",
+        "rev": "835129f6a877005890b77562fb0cd7acb35e0292",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rose-pine",
+        "ref": "v1.2.0",
+        "repo": "neovim",
         "type": "github"
       }
     }

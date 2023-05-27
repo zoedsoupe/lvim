@@ -25,6 +25,21 @@
       url = "github:nvim-lua/plenary.nvim/v0.1.3";
       flake = false;
     };
+
+    theme-catppuccin = {
+      url = "github:catppuccin/nvim/v1.2.0";
+      flake = false;
+    };
+
+    theme-doom-one = {
+      url = "github:NTBBloodbath/doom-one.nvim";
+      flake = false;
+    };
+
+    theme-rose-pine = {
+      url = "github:rose-pine/neovim/v1.2.0";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }@inputs:
@@ -45,6 +60,11 @@
           lvim = {
             autopair.enable = true;
             surround.enable = true;
+            theme = {
+              enable = true;
+              name = "catppuccin";
+              flavour = "macchiato";
+            };
           };
         };
       in
