@@ -6,6 +6,11 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Plugins
+    friendly-snippets = {
+      url = "github:rafamadriz/friendly-snippets";
+      flake = false;
+    };
+
     indent-blankline = {
       url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
@@ -21,6 +26,11 @@
       flake = false;
     };
 
+    luasnip = {
+      url = "github:L3MON4D3/LuaSnip";
+      flake = false;
+    };
+
     nvim-autopairs = {
       url = "github:windwp/nvim-autopairs";
       flake = false;
@@ -33,6 +43,16 @@
 
     nvim-cmp = {
       url = "github:hrsh7th/nvim-cmp";
+      flake = false;
+    };
+
+    nvim-cmp-buffer = {
+      url = "github:hrsh7th/cmp-buffer";
+      flake = false;
+    };
+
+    nvim-cmp-cmdline = {
+      url = "github:hrsh7th/cmp-cmdline";
       flake = false;
     };
 
@@ -102,7 +122,13 @@
             comments.enable = true;
             completion = {
               enable = true;
+              buffer.enable = true;
+              cmdline.enable = false;
               path.enable = true;
+              snippets = {
+                enable = true;
+                source = "luasnip";
+              };
             };
             git = {
               enable = true;

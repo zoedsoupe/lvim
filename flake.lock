@@ -18,6 +18,22 @@
         "type": "github"
       }
     },
+    "friendly-snippets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684797025,
+        "narHash": "sha256-eJyd7CqLjsXEOUv2SLLYonqtqrH8s1QE64HNg063THY=",
+        "owner": "rafamadriz",
+        "repo": "friendly-snippets",
+        "rev": "ef6547d2f586e08e071efeebac835e545f3015cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rafamadriz",
+        "repo": "friendly-snippets",
+        "type": "github"
+      }
+    },
     "gitsigns-nvim": {
       "flake": false,
       "locked": {
@@ -83,6 +99,22 @@
         "type": "github"
       }
     },
+    "luasnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685102609,
+        "narHash": "sha256-HdFsZfLSEAUR9UTjDSVfr2Elnv+iZj6EZaU1i6cmXBo=",
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
+        "rev": "a83e4b1ba7edc6fecdad09e39753a7d5eee1d01c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1685004253,
@@ -128,6 +160,38 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "nvim-cmp",
+        "type": "github"
+      }
+    },
+    "nvim-cmp-buffer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660101488,
+        "narHash": "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "rev": "3022dbc9166796b644a841a02de8dd1cc1d311fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "type": "github"
+      }
+    },
+    "nvim-cmp-cmdline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1682340614,
+        "narHash": "sha256-s3T4fQt9RbtnIhmaeFsFb+8X0fARVke0oITFLVfrtws=",
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
+        "rev": "5af1bb7d722ef8a96658f01d6eb219c4cf746b32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-cmdline",
         "type": "github"
       }
     },
@@ -216,13 +280,17 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "friendly-snippets": "friendly-snippets",
         "gitsigns-nvim": "gitsigns-nvim",
         "indent-blankline": "indent-blankline",
         "kommentary": "kommentary",
         "lazy-nvim": "lazy-nvim",
+        "luasnip": "luasnip",
         "nixpkgs": "nixpkgs",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-cmp": "nvim-cmp",
+        "nvim-cmp-buffer": "nvim-cmp-buffer",
+        "nvim-cmp-cmdline": "nvim-cmp-cmdline",
         "nvim-cmp-path": "nvim-cmp-path",
         "nvim-cursorline": "nvim-cursorline",
         "nvim-surround": "nvim-surround",
