@@ -6,5 +6,6 @@
     ./surround.nix
     ./telescope.nix
     ./theme.nix
+    ./visuals.nix
   ];
 }

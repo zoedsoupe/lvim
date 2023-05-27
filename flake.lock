@@ -18,6 +18,22 @@
         "type": "github"
       }
     },
+    "indent-blankline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685063288,
+        "narHash": "sha256-eDfPgz5csbOHfI9FVXw1xGx+rTaoVzBTS8K1Cf618GA=",
+        "owner": "lukas-reineke",
+        "repo": "indent-blankline.nvim",
+        "rev": "ceaf730b13e332cd76600d9795722413c236c684",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lukas-reineke",
+        "repo": "indent-blankline.nvim",
+        "type": "github"
+      }
+    },
     "lazy-nvim": {
       "flake": false,
       "locked": {
@@ -67,6 +83,22 @@
         "type": "github"
       }
     },
+    "nvim-cursorline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650034925,
+        "narHash": "sha256-Uhw65p1KBjs8KsVOmTzuiu3XKclxBob8AVdWEt30C/8=",
+        "owner": "yamatsum",
+        "repo": "nvim-cursorline",
+        "rev": "804f0023692653b2b2368462d67d2a87056947f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yamatsum",
+        "repo": "nvim-cursorline",
+        "type": "github"
+      }
+    },
     "nvim-surround": {
       "flake": false,
       "locked": {
@@ -81,6 +113,22 @@
         "owner": "kylechui",
         "ref": "v2.0.5",
         "repo": "nvim-surround",
+        "type": "github"
+      }
+    },
+    "nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685150210,
+        "narHash": "sha256-bryHxQZQ75wQXHLqYVh5zSkgLijdPvVAZPDYnv+JTkI=",
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
+        "rev": "2a125024a137677930efcfdf720f205504c97268",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-web-devicons",
         "type": "github"
       }
     },
@@ -104,10 +152,13 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "indent-blankline": "indent-blankline",
         "lazy-nvim": "lazy-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-autopairs": "nvim-autopairs",
+        "nvim-cursorline": "nvim-cursorline",
         "nvim-surround": "nvim-surround",
+        "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
         "telescope-nvim": "telescope-nvim",
         "theme-catppuccin": "theme-catppuccin",

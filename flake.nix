@@ -6,6 +6,11 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Plugins
+    indent-blankline = {
+      url = "github:lukas-reineke/indent-blankline.nvim";
+      flake = false;
+    };
+
     lazy-nvim = {
       url = "github:folke/lazy.nvim/v9.20.0";
       flake = false;
@@ -16,8 +21,18 @@
       flake = false;
     };
 
+    nvim-cursorline = {
+      url = "github:yamatsum/nvim-cursorline";
+      flake = false;
+    };
+
     nvim-surround = {
       url = "github:kylechui/nvim-surround/v2.0.5";
+      flake = false;
+    };
+
+    nvim-web-devicons = {
+      url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
 
@@ -70,6 +85,14 @@
               enable = true;
               name = "catppuccin";
               flavour = "macchiato";
+            };
+            visuals = {
+              icons.enable = true;
+              cursorWordline.enable = true;
+              indentBlankline = {
+                enable = true;
+                
+              };
             };
           };
         };
