@@ -11,6 +11,11 @@
       flake = false;
     };
 
+    nvim-autopairs = {
+      url = "github:windwp/nvim-autopairs";
+      flake = false;
+    };
+
     nvim-surround = {
       url = "github:kylechui/nvim-surround/v2.0.5";
       flake = false;
@@ -38,6 +43,7 @@
 
         config = {
           lvim = {
+            autopair.enable = true;
             surround.enable = true;
           };
         };
