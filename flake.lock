@@ -244,6 +244,70 @@
         "type": "github"
       }
     },
+    "nvim-ts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685177072,
+        "narHash": "sha256-XhWWUhq+o5tKgY3FA8avT7flZbA5pIryjE68sLSkN2o=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "a76db88548bb7fe008cd7e4f2d2ec2ccc080dede",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "type": "github"
+      }
+    },
+    "nvim-ts-autotag": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1682633949,
+        "narHash": "sha256-zv3m7IvDbWOOESZL3+8DcNt9vNT9fSfz2X7EOD6rqHQ=",
+        "owner": "windwp",
+        "repo": "nvim-ts-autotag",
+        "rev": "40615e96075c743ef47aaf9de966dc348bec6459",
+        "type": "github"
+      },
+      "original": {
+        "owner": "windwp",
+        "repo": "nvim-ts-autotag",
+        "type": "github"
+      }
+    },
+    "nvim-ts-context": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684935436,
+        "narHash": "sha256-kYPN02Ww/l0+79KPYfbWBSvTERmZ5lgwvGgbAlRpOtA=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-context",
+        "rev": "7cd5ac1c384b89e7e607238a936f13963f97ba32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-context",
+        "type": "github"
+      }
+    },
+    "nvim-ts-rainbow": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685206890,
+        "narHash": "sha256-RAkoFj9DjcfPcbgoaXFo0TCc8gjPH11n1JKfDH/gHO8=",
+        "owner": "HiPhish",
+        "repo": "nvim-ts-rainbow2",
+        "rev": "a9937f8a90e08a2a856cfce87eb40e4b90a8ef47",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HiPhish",
+        "repo": "nvim-ts-rainbow2",
+        "type": "github"
+      }
+    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -294,6 +358,10 @@
         "nvim-cmp-path": "nvim-cmp-path",
         "nvim-cursorline": "nvim-cursorline",
         "nvim-surround": "nvim-surround",
+        "nvim-ts": "nvim-ts",
+        "nvim-ts-autotag": "nvim-ts-autotag",
+        "nvim-ts-context": "nvim-ts-context",
+        "nvim-ts-rainbow": "nvim-ts-rainbow",
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
         "telescope-nvim": "telescope-nvim",

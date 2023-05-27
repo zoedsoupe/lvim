@@ -61,6 +61,26 @@
       flake = false;
     };
 
+    nvim-ts = {
+      url = "github:nvim-treesitter/nvim-treesitter";
+      flake = false;
+    };
+
+    nvim-ts-autotag = {
+      url = "github:windwp/nvim-ts-autotag";
+      flake = false;
+    };
+
+    nvim-ts-context = {
+      url = "github:nvim-treesitter/nvim-treesitter-context";
+      flake = false;
+    };
+
+    nvim-ts-rainbow = {
+      url = "github:HiPhish/nvim-ts-rainbow2";
+      flake = false;
+    };
+
     nvim-surround = {
       url = "github:kylechui/nvim-surround/v2.0.5";
       flake = false;
@@ -140,6 +160,12 @@
               enable = true;
               name = "catppuccin";
               flavour = "macchiato";
+            };
+            treesitter = {
+              enable = true;
+              autotag.enable = true;
+              context.enable = false;
+              rainbow.enable = true;
             };
             visuals = {
               icons.enable = true;

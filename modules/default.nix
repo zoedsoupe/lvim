@@ -9,6 +9,7 @@
     ./surround.nix
     ./telescope.nix
     ./theme.nix
+    ./treesitter.nix
     ./visuals.nix
   ];
 }
