@@ -126,13 +126,8 @@
       flake = false;
     };
 
-    vim-sexp = {
-      url = "github:guns/vim-sexp";
-      flake = false;
-    };
-
-    vim-sexp-mappings = {
-      url = "github:tpope/vim-sexp-mappings-for-regular-people";
+    rust-tools = {
+      url = "github:simrat39/rust-tools.nvim";
       flake = false;
     };
 
@@ -153,6 +148,21 @@
 
     theme-rose-pine = {
       url = "github:rose-pine/neovim/v1.2.0";
+      flake = false;
+    };
+
+    typescript-nvim = {
+      url = "github:jose-elias-alvarez/typescript.nvim";
+      flake = false;
+    };
+
+    vim-sexp = {
+      url = "github:guns/vim-sexp";
+      flake = false;
+    };
+
+    vim-sexp-mappings = {
+      url = "github:tpope/vim-sexp-mappings-for-regular-people";
       flake = false;
     };
   };
@@ -192,8 +202,12 @@
             };
             lsp = {
               enable = true;
-              clojurelsp.enable = true;
-              elixirls.enable = true;
+              clojure.enable = true;
+              dart.enable = true;
+              elixir.enable = true;
+              nix.enable = true;
+              rust.enable = false;
+              typescript.enable = false;
             };
             surround.enable = true;
             telescope.enable = true;

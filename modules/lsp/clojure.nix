@@ -3,11 +3,11 @@
 let
   inherit (lib) mkEnableOption mkIf writeIf;
   cfg = config.lvim.lsp;
-  clojure = cfg.enable && cfg.clojurelsp.enable;
+  clojure = cfg.enable && cfg.clojure.enable;
   completion = config.lvim.completion.enable && cfg.enable;
 in
 {
-  options.lvim.lsp.clojurelsp.enable = mkEnableOption "Enables Clojure support plugins";
+  options.lvim.lsp.clojure.enable = mkEnableOption "Enables Clojure support plugins";
 
   config.lvim = mkIf clojure {
     startPlugins = with pkgs.neovimPlugins; [ conjure vim-sexp vim-sexp-mappings ];

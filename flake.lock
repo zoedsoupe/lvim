@@ -449,12 +449,30 @@
         "nvim-ts-rainbow": "nvim-ts-rainbow",
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
+        "rust-tools": "rust-tools",
         "telescope-nvim": "telescope-nvim",
         "theme-catppuccin": "theme-catppuccin",
         "theme-doom-one": "theme-doom-one",
         "theme-rose-pine": "theme-rose-pine",
+        "typescript-nvim": "typescript-nvim",
         "vim-sexp": "vim-sexp",
         "vim-sexp-mappings": "vim-sexp-mappings"
+      }
+    },
+    "rust-tools": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676929960,
+        "narHash": "sha256-Cuk/vdoviB9ibt2rrkNRmNFy4S+6czhbExmIjTJRdZM=",
+        "owner": "simrat39",
+        "repo": "rust-tools.nvim",
+        "rev": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "simrat39",
+        "repo": "rust-tools.nvim",
+        "type": "github"
       }
     },
     "systems": {
@@ -535,6 +553,22 @@
         "owner": "rose-pine",
         "ref": "v1.2.0",
         "repo": "neovim",
+        "type": "github"
+      }
+    },
+    "typescript-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672710615,
+        "narHash": "sha256-PHVY5NJbOGvY9p0F0QNSfMKmAWdqjw1RB0Vspq88qMI=",
+        "owner": "jose-elias-alvarez",
+        "repo": "typescript.nvim",
+        "rev": "f66d4472606cb24615dfb7dbc6557e779d177624",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jose-elias-alvarez",
+        "repo": "typescript.nvim",
         "type": "github"
       }
     },

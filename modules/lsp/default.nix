@@ -5,7 +5,7 @@ let
   cfg = config.lvim.lsp;
 in
 {
-  imports = [ ./clojure.nix ./elixir.nix ];
+  imports = [ ./clojure.nix ./dart.nix ./elixir.nix ./nix.nix ./rust.nix ./typescript.nix ];
 
   options.lvim.lsp.enable = mkEnableOption "Enables programming languages support";
 

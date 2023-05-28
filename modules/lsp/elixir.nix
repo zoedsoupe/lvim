@@ -3,11 +3,11 @@
 let
   inherit (lib) mkEnableOption mkIf writeIf;
   cfg = config.lvim.lsp;
-  elixir = cfg.enable && cfg.elixirls.enable;
+  elixir = cfg.enable && cfg.elixir.enable;
   completion = config.lvim.completion.enable && cfg.enable;
 in
 {
-  options.lvim.lsp.elixirls.enable = mkEnableOption "Enables Elixir support plugins";
+  options.lvim.lsp.elixir.enable = mkEnableOption "Enables Elixir support plugins";
 
   config.lvim = mkIf elixir {
     startPlugins = with pkgs.neovimPlugins; [ nvim-elixir ];
