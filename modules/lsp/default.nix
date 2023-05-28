@@ -5,6 +5,8 @@ let
   cfg = config.lvim.lsp;
 in
 {
+  imports = [ ./clojure.nix ./elixir.nix ];
+
   options.lvim.lsp.enable = mkEnableOption "Enables programming languages support";
 
   config.lvim = mkIf cfg.enable {
@@ -64,6 +66,4 @@ in
       -- END LSP CONFIG
     '';
   };
-
-  imports = [ ./elixir.nix ];
 }

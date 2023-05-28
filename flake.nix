@@ -6,6 +6,11 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Plugins
+    conjure = {
+      url = "github:Olical/conjure";
+      flake = false;
+    };
+
     friendly-snippets = {
       url = "github:rafamadriz/friendly-snippets";
       flake = false;
@@ -121,6 +126,16 @@
       flake = false;
     };
 
+    vim-sexp = {
+      url = "github:guns/vim-sexp";
+      flake = false;
+    };
+
+    vim-sexp-mappings = {
+      url = "github:tpope/vim-sexp-mappings-for-regular-people";
+      flake = false;
+    };
+
     telescope-nvim = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
@@ -177,6 +192,7 @@
             };
             lsp = {
               enable = true;
+              clojurelsp.enable = true;
               elixirls.enable = true;
             };
             surround.enable = true;

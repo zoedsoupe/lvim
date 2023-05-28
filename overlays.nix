@@ -3,7 +3,7 @@
 let
   libOverlay = f: p: {
     lib = p.lib.extend (_: _: {
-      inherit (lib) withPlugins writeIf boolStr;
+      inherit (lib) withPlugins writeIf boolStr withAttrSet;
     });
   };
 in

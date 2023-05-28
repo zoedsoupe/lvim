@@ -22,7 +22,7 @@ in
       "<leader>fvs" = "<cmd> Telescope git_status<CR>";
       "<leader>fvx" = "<cmd> Telescope git_stash<CR>";
     } // (
-      withAttrSet config.vim.lsp.enable {
+      withAttrSet config.lvim.lsp.enable {
         "<leader>flsb" = "<cmd> Telescope lsp_document_symbols<CR>";
         "<leader>flsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
         "<leader>flr" = "<cmd> Telescope lsp_references<CR>";
@@ -32,7 +32,7 @@ in
         "<leader>fld" = "<cmd> Telescope diagnostics<CR>";
       }
     ) // (
-      withAttrSet config.vim.treesitter.enable {
+      withAttrSet config.lvim.treesitter.enable {
         "<leader>fs" = "<cmd> Telescope treesitter<CR>";
       }
     );
