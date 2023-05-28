@@ -101,6 +101,11 @@
       flake = false;
     };
 
+    nvim-tree-lua = {
+      url = "github:kyazdani42/nvim-tree.lua";
+      flake = false;
+    };
+
     nvim-ts = {
       url = "github:nvim-treesitter/nvim-treesitter";
       flake = false;
@@ -219,6 +224,7 @@
                 source = "luasnip";
               };
             };
+            filetree.enable = true;
             git = {
               enable = true;
               gitsigns.enable = true;

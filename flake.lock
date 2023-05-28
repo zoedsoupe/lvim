@@ -372,6 +372,22 @@
         "type": "github"
       }
     },
+    "nvim-tree-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685168613,
+        "narHash": "sha256-TZNibkRvpKBTxWwrziJMfVqbEOt4VGiuXjD/+bZhloE=",
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
+        "rev": "e2a4c9d09d205ebe5f071264f43f73a0077c43a3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
+        "type": "github"
+      }
+    },
     "nvim-ts": {
       "flake": false,
       "locked": {
@@ -494,6 +510,7 @@
         "nvim-elixir": "nvim-elixir",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-surround": "nvim-surround",
+        "nvim-tree-lua": "nvim-tree-lua",
         "nvim-ts": "nvim-ts",
         "nvim-ts-autotag": "nvim-ts-autotag",
         "nvim-ts-context": "nvim-ts-context",

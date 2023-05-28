@@ -5,6 +5,7 @@
     ./comment.nix
     ./completion.nix
     ./core.nix
+    ./filetree.nix
     ./git.nix
     ./lsp
     ./surround.nix
