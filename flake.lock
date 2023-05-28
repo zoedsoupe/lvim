@@ -66,6 +66,22 @@
         "type": "github"
       }
     },
+    "inc-rename": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680737971,
+        "narHash": "sha256-2D2jlDSeB2fy5/PK3M7aHk/X4Zv7esKPya3QOiH8GdI=",
+        "owner": "smjonas",
+        "repo": "inc-rename.nvim",
+        "rev": "fb1b7468f27d874feb209eac46be5205e20b7fd3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "smjonas",
+        "repo": "inc-rename.nvim",
+        "type": "github"
+      }
+    },
     "indent-blankline": {
       "flake": false,
       "locked": {
@@ -459,6 +475,7 @@
         "flake-utils": "flake-utils",
         "friendly-snippets": "friendly-snippets",
         "gitsigns-nvim": "gitsigns-nvim",
+        "inc-rename": "inc-rename",
         "indent-blankline": "indent-blankline",
         "kommentary": "kommentary",
         "lazy-nvim": "lazy-nvim",
@@ -488,6 +505,7 @@
         "theme-catppuccin": "theme-catppuccin",
         "theme-doom-one": "theme-doom-one",
         "theme-rose-pine": "theme-rose-pine",
+        "trouble-nvim": "trouble-nvim",
         "typescript-nvim": "typescript-nvim",
         "vim-sexp": "vim-sexp",
         "vim-sexp-mappings": "vim-sexp-mappings"
@@ -587,6 +605,22 @@
         "owner": "rose-pine",
         "ref": "v1.2.0",
         "repo": "neovim",
+        "type": "github"
+      }
+    },
+    "trouble-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685083769,
+        "narHash": "sha256-SybmV5wqIcTYSTCvgE3fHII0dsxyFU8qzXE3adCRYsI=",
+        "owner": "folke",
+        "repo": "trouble.nvim",
+        "rev": "324c977cfeacb8498ca9ba1c74cc35bd18858a8d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "trouble.nvim",
         "type": "github"
       }
     },

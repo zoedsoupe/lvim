@@ -16,6 +16,11 @@
       flake = false;
     };
 
+    inc-rename = {
+      url = "github:smjonas/inc-rename.nvim";
+      flake = false;
+    };
+
     indent-blankline = {
       url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
@@ -161,6 +166,11 @@
       flake = false;
     };
 
+    trouble-nvim = {
+      url = "github:folke/trouble.nvim";
+      flake = false;
+    };
+
     typescript-nvim = {
       url = "github:jose-elias-alvarez/typescript.nvim";
       flake = false;
@@ -222,6 +232,8 @@
               rust.enable = false;
               typescript.enable = false;
               null-ls.enable = true;
+              trouble.enable = true;
+              rename.enable = true;
             };
             surround.enable = true;
             telescope.enable = true;
