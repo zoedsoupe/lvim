@@ -11,7 +11,10 @@ in
     buffer.enable = mkEnableOption "Enables buffer auto completion";
     cmdline.enable = mkEnableOption "Enables cmdline auto completion";
     path.enable = mkEnableOption "Enables paths auto completion";
-    lsp.enable = mkEnableOption "Enables LSP auto completion";
+    lsp = {
+      enable = mkEnableOption "Enables LSP auto completion";
+      lspkind.enable = mkEnableOption "Enables VScode like pictograms";
+    };
     snippets = {
       enable = mkEnableOption "Enables snippets completion";
       source = mkOption {
@@ -28,6 +31,7 @@ in
       (withPlugins cfg.buffer.enable [ nvim-cmp-buffer ]) ++
       (withPlugins cfg.cmdline.enable [ nvim-cmp-cmdline ]) ++
       (withPlugins cfg.lsp.enable [ nvim-cmp-lsp ]) ++
+      (withPlugins (cfg.lsp.enable && cfg.lsp.lspkind.enable) [ lspkind ]) ++
       (withPlugins isluasnip [ nvim-cmp-lsp luasnip friendly-snippets ]) ++
       [ nvim-cmp ]
     );
@@ -47,6 +51,15 @@ in
       end
 
       cmp.setup({
+        ${writeIf (cfg.lsp.enable && cfg.lsp.lspkind.enable) ''
+        formatting = {
+          format = require('lspkind').cmp_format({
+            mode = 'symbol',
+            maxwidth = 50,
+            ellipsis_char = '...',
+          }),
+        },
+        ''}
         ${writeIf (isluasnip && cfg.lsp.enable) ''
         snippet = {
           expand = function(args)

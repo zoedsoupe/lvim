@@ -31,8 +31,18 @@
       flake = false;
     };
 
+    lspkind = {
+      url = "github:onsails/lspkind.nvim";
+      flake = false;
+    };
+
     luasnip = {
       url = "github:L3MON4D3/LuaSnip";
+      flake = false;
+    };
+
+    null-ls = {
+      url = "github:jose-elias-alvarez/null-ls.nvim";
       flake = false;
     };
 
@@ -189,7 +199,10 @@
               enable = true;
               buffer.enable = true;
               cmdline.enable = false;
-              lsp.enable = true;
+              lsp = {
+                enable = true;
+                lspkind.enable = true;
+              };
               path.enable = true;
               snippets = {
                 enable = true;
@@ -208,6 +221,7 @@
               nix.enable = true;
               rust.enable = false;
               typescript.enable = false;
+              null-ls.enable = true;
             };
             surround.enable = true;
             telescope.enable = true;
