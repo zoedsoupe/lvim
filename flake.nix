@@ -56,8 +56,28 @@
       flake = false;
     };
 
+    nvim-cmp-lsp = {
+      url = "github:hrsh7th/cmp-nvim-lsp";
+      flake = false;
+    };
+
+    nvim-cmp-luasnip = {
+      url = "github:saadparwaiz1/cmp_luasnip";
+      flake = false;
+    };
+
     nvim-cmp-path = {
       url = "github:hrsh7th/cmp-path";
+      flake = false;
+    };
+
+    nvim-elixir = {
+      url = "github:elixir-editors/vim-elixir";
+      flake = false;
+    };
+
+    nvim-lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
 
@@ -144,6 +164,7 @@
               enable = true;
               buffer.enable = true;
               cmdline.enable = false;
+              lsp.enable = true;
               path.enable = true;
               snippets = {
                 enable = true;
@@ -153,6 +174,10 @@
             git = {
               enable = true;
               gitsigns.enable = true;
+            };
+            lsp = {
+              enable = true;
+              elixirls.enable = true;
             };
             surround.enable = true;
             telescope.enable = true;

@@ -95,6 +95,8 @@ in
     in
     {
       lvim.configRC = ''
+        filetype plugin indent on
+        syntax on
         lua << EOF
         ${cfg.rawConfig}
 

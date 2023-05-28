@@ -6,6 +6,7 @@
     ./completion.nix
     ./core.nix
     ./git.nix
+    ./lsp
     ./surround.nix
     ./telescope.nix
     ./theme.nix

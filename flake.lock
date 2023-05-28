@@ -195,6 +195,38 @@
         "type": "github"
       }
     },
+    "nvim-cmp-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675708067,
+        "narHash": "sha256-DxpcPTBlvVP88PDoTheLV2fC76EXDqS2UpM5mAfj/D4=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "rev": "0e6b2ed705ddcff9738ec4ea838141654f12eeef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "type": "github"
+      }
+    },
+    "nvim-cmp-luasnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666943769,
+        "narHash": "sha256-Z5SPy3j2oHFxJ7bK8DP8Q/oRyLEMlnWyIfDaQcNVIS0=",
+        "owner": "saadparwaiz1",
+        "repo": "cmp_luasnip",
+        "rev": "18095520391186d634a0045dacaa346291096566",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saadparwaiz1",
+        "repo": "cmp_luasnip",
+        "type": "github"
+      }
+    },
     "nvim-cmp-path": {
       "flake": false,
       "locked": {
@@ -224,6 +256,38 @@
       "original": {
         "owner": "yamatsum",
         "repo": "nvim-cursorline",
+        "type": "github"
+      }
+    },
+    "nvim-elixir": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1656170516,
+        "narHash": "sha256-PkO0CKGk+MypFFT2QhvURyRRBzrzOL0CoCog85YwWTE=",
+        "owner": "elixir-editors",
+        "repo": "vim-elixir",
+        "rev": "6dd03f87d825bf0a9f8611eb54076c7952d4f15c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elixir-editors",
+        "repo": "vim-elixir",
+        "type": "github"
+      }
+    },
+    "nvim-lspconfig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685164449,
+        "narHash": "sha256-XADAxMQm7LfOQs7/WNtMbm3WSbIFPJ53VMvljHLPhmM=",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "465042c0f786992212284311ebb5da1f89479774",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
         "type": "github"
       }
     },
@@ -355,8 +419,12 @@
         "nvim-cmp": "nvim-cmp",
         "nvim-cmp-buffer": "nvim-cmp-buffer",
         "nvim-cmp-cmdline": "nvim-cmp-cmdline",
+        "nvim-cmp-lsp": "nvim-cmp-lsp",
+        "nvim-cmp-luasnip": "nvim-cmp-luasnip",
         "nvim-cmp-path": "nvim-cmp-path",
         "nvim-cursorline": "nvim-cursorline",
+        "nvim-elixir": "nvim-elixir",
+        "nvim-lspconfig": "nvim-lspconfig",
         "nvim-surround": "nvim-surround",
         "nvim-ts": "nvim-ts",
         "nvim-ts-autotag": "nvim-ts-autotag",

@@ -11,6 +11,7 @@ in
     buffer.enable = mkEnableOption "Enables buffer auto completion";
     cmdline.enable = mkEnableOption "Enables cmdline auto completion";
     path.enable = mkEnableOption "Enables paths auto completion";
+    lsp.enable = mkEnableOption "Enables LSP auto completion";
     snippets = {
       enable = mkEnableOption "Enables snippets completion";
       source = mkOption {
@@ -26,14 +27,18 @@ in
       (withPlugins cfg.path.enable [ nvim-cmp-path ]) ++
       (withPlugins cfg.buffer.enable [ nvim-cmp-buffer ]) ++
       (withPlugins cfg.cmdline.enable [ nvim-cmp-cmdline ]) ++
-      (withPlugins isluasnip [ luasnip friendly-snippets ]) ++
+      (withPlugins cfg.lsp.enable [ nvim-cmp-lsp ]) ++
+      (withPlugins isluasnip [ nvim-cmp-lsp luasnip friendly-snippets ]) ++
       [ nvim-cmp ]
     );
     rawConfig = ''
       -- NVIM CMP
 
       ${writeIf isluasnip ''
+      local luasnip = require("luasnip")
       require('luasnip.loaders.from_vscode').lazy_load()
+      ''}
+      local cmp = require('cmp')
 
       local has_words_before = function()
         unpack = unpack or table.unpack
@@ -41,11 +46,14 @@ in
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
       end
 
-      local luasnip = require("luasnip")
-      ''}
-      local cmp = require('cmp')
-
       cmp.setup({
+        ${writeIf (isluasnip && cfg.lsp.enable) ''
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        ''}
         mapping = cmp.mapping.preset.insert({
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -57,10 +65,10 @@ in
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-            -- they way you will only jump inside the snippet region
+            ${writeIf cfg.lsp.enable ''
             elseif luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
+            ''}
             elseif has_words_before() then
               cmp.complete()
             else
@@ -71,8 +79,10 @@ in
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
+            ${writeIf cfg.lsp.enable ''
             elseif luasnip.jumpable(-1) then
               luasnip.jump(-1)
+            ''}
             else
               fallback()
             end
@@ -80,6 +90,7 @@ in
           ''}
         }),
         sources = cmp.config.sources({
+          ${writeIf cfg.lsp.enable "{ name = 'nvim_lsp' },"}
           ${writeIf cfg.path.enable "{ name = 'path' },"}
           ${writeIf cfg.buffer.enable "{ name = 'buffer' },"}
           ${writeIf cfg.cmdline.enable "{ name = 'cmdline' },"}

@@ -21,7 +21,21 @@ in
       "<leader>fvb" = "<cmd> Telescope git_branches<CR>";
       "<leader>fvs" = "<cmd> Telescope git_status<CR>";
       "<leader>fvx" = "<cmd> Telescope git_stash<CR>";
-    };
+    } // (
+      withAttrSet config.vim.lsp.enable {
+        "<leader>flsb" = "<cmd> Telescope lsp_document_symbols<CR>";
+        "<leader>flsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
+        "<leader>flr" = "<cmd> Telescope lsp_references<CR>";
+        "<leader>fli" = "<cmd> Telescope lsp_implementations<CR>";
+        "<leader>flD" = "<cmd> Telescope lsp_definitions<CR>";
+        "<leader>flt" = "<cmd> Telescope lsp_type_definitions<CR>";
+        "<leader>fld" = "<cmd> Telescope diagnostics<CR>";
+      }
+    ) // (
+      withAttrSet config.vim.treesitter.enable {
+        "<leader>fs" = "<cmd> Telescope treesitter<CR>";
+      }
+    );
     rawConfig = ''
       -- TELESCOPE CONFIG
       require('telescope').setup({
