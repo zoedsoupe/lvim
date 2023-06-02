@@ -1,11 +1,13 @@
-{ pkgs, config, lib, ... }:
-
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkEnableOption mkOption mkIf types writeIf withPlugins;
   inherit (builtins) boolToString;
   cfg = config.lvim.visuals;
-in
-{
+in {
   options.lvim.visuals = {
     enable = mkEnableOption "visual enhancements";
     icons.enable = mkEnableOption "enable dev icons. required for certain plugins";
@@ -40,9 +42,9 @@ in
 
   config.lvim = mkIf cfg.enable {
     startPlugins = with pkgs.neovimPlugins; (
-      (withPlugins cfg.icons.enable [ nvim-web-devicons ]) ++
-      (withPlugins cfg.cursorWordline.enable [ nvim-cursorline ]) ++
-      (withPlugins cfg.indentBlankline.enable [ indent-blankline ])
+      (withPlugins cfg.icons.enable [nvim-web-devicons])
+      ++ (withPlugins cfg.cursorWordline.enable [nvim-cursorline])
+      ++ (withPlugins cfg.indentBlankline.enable [indent-blankline])
     );
     globals = mkIf cfg.cursorWordline.enable {
       cursorline_timeout = toString cfg.cursorWordline.lineTimeout;
@@ -52,11 +54,11 @@ in
         vim.wo.colorcolumn = "99999"
         vim.opt.list = true
         ${writeIf (cfg.indentBlankline.eolChar != "") ''
-        vim.opt.listchars:append({ eol = "${cfg.indentBlankline.eolChar}" })
+          vim.opt.listchars:append({ eol = "${cfg.indentBlankline.eolChar}" })
         ''}
 
         ${writeIf (cfg.indentBlankline.fillChar != "") ''
-        vim.opt.listchars:append({ space = "${cfg.indentBlankline.fillChar}"})
+          vim.opt.listchars:append({ space = "${cfg.indentBlankline.fillChar}"})
         ''}
 
         require('indent_blankline').setup {

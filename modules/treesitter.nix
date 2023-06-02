@@ -1,11 +1,13 @@
-{ pkgs, lib, config, ... }:
-
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   inherit (pkgs) neovimPlugins;
   inherit (lib) mkEnableOption mkIf withPlugins writeIf;
   cfg = config.lvim.treesitter;
-in
-{
+in {
   options.lvim.treesitter = {
     enable = mkEnableOption "Enables tree-sitter [nvim-treesitter]";
     autotag.enable = mkEnableOption "Enables auto tagging";
@@ -15,10 +17,10 @@ in
 
   config.lvim = mkIf cfg.enable {
     startPlugins = with neovimPlugins; (
-      (withPlugins cfg.autotag.enable [ nvim-ts-autotag ]) ++
-      (withPlugins cfg.autotag.enable [ nvim-ts-context ]) ++
-      (withPlugins cfg.autotag.enable [ nvim-ts-rainbow ]) ++
-      [ nvim-ts ]
+      (withPlugins cfg.autotag.enable [nvim-ts-autotag])
+      ++ (withPlugins cfg.autotag.enable [nvim-ts-context])
+      ++ (withPlugins cfg.autotag.enable [nvim-ts-rainbow])
+      ++ [nvim-ts]
     );
     globals = {
       "foldmethod" = "expr";
@@ -38,19 +40,19 @@ in
           query = 'rainbow-parens',
           strategy = require('ts-rainbow').strategy.global,
         },
-        ''}
+      ''}
         ${writeIf cfg.autotag.enable ''
         autotag = {
           enable = true,
         },
-        ''}
+      ''}
       })
       ${writeIf cfg.context.enable ''
-      require'treesitter-context'.setup {
-        enable = true,
-        throttle = true,
-        max_lines = 0
-      }
+        require'treesitter-context'.setup {
+          enable = true,
+          throttle = true,
+          max_lines = 0
+        }
       ''}
       -- END TRESSITTER
     '';

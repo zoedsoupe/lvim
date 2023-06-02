@@ -1,15 +1,17 @@
-{ lib, pkgs, config, ... }:
-
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.lvim.lsp;
   trouble = cfg.enable && cfg.trouble.enable;
-in
-{
+in {
   options.lvim.lsp.trouble.enable = mkEnableOption "Enables Neovim LSP diagnostic support plugins";
 
   config.lvim = mkIf trouble {
-    startPlugins = with pkgs.neovimPlugins; [ trouble-nvim ];
+    startPlugins = with pkgs.neovimPlugins; [trouble-nvim];
     nnoremap = {
       "<leader>xx" = "<cmd>TroubleToggle<cr>";
       "<leader>xw" = "<cmd>TroubleToggle workspace_diagnostics<cr>";

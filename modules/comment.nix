@@ -1,14 +1,16 @@
-{ pkgs, lib, config, ... }:
-
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.lvim.comments;
-in
-{
+in {
   options.lvim.comments.enable = mkEnableOption "Enable comment plugin";
 
   config.lvim = mkIf cfg.enable {
-    startPlugins = with pkgs.neovimPlugins; [ kommentary ];
+    startPlugins = with pkgs.neovimPlugins; [kommentary];
     rawConfig = ''
       -- KOMMENTARY
       require('kommentary.config').setup();

@@ -192,101 +192,106 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        lib = import ./lib.nix { inherit pkgs inputs; };
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    ...
+  } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system: let
+      lib = import ./lib.nix {inherit pkgs inputs;};
 
-        inherit (import ./overlays.nix {
+      inherit
+        (import ./overlays.nix {
           inherit lib;
-        }) overlays;
+        })
+        overlays
+        ;
 
-        pkgs = import nixpkgs {
-          inherit system overlays;
-          config.allowUnfree = true;
-        };
+      pkgs = import nixpkgs {
+        inherit system overlays;
+        config.allowUnfree = true;
+      };
 
-        config = {
-          lvim = {
-            autopair.enable = true;
-            comments.enable = true;
-            completion = {
-              enable = true;
-              buffer.enable = true;
-              cmdline.enable = false;
-              lsp = {
-                enable = true;
-                lspkind.enable = true;
-              };
-              path.enable = true;
-              snippets = {
-                enable = true;
-                source = "luasnip";
-              };
-            };
-            filetree.enable = true;
-            git = {
-              enable = true;
-              gitsigns.enable = true;
-            };
+      config = {
+        lvim = {
+          autopair.enable = true;
+          comments.enable = true;
+          completion = {
+            enable = true;
+            buffer.enable = true;
+            cmdline.enable = false;
             lsp = {
               enable = true;
-              clojure.enable = true;
-              dart.enable = true;
-              elixir.enable = true;
-              nix.enable = true;
-              rust.enable = false;
-              typescript.enable = false;
-              null-ls.enable = true;
-              trouble.enable = true;
-              rename.enable = true;
+              lspkind.enable = true;
             };
-            surround.enable = true;
-            telescope.enable = true;
-            theme = {
+            path.enable = true;
+            snippets = {
               enable = true;
-              name = "catppuccin";
-              flavour = "macchiato";
+              source = "luasnip";
             };
-            treesitter = {
+          };
+          filetree.enable = true;
+          git = {
+            enable = true;
+            gitsigns.enable = true;
+          };
+          lsp = {
+            enable = true;
+            clojure.enable = true;
+            dart.enable = true;
+            elixir.enable = true;
+            nix.enable = true;
+            rust.enable = false;
+            typescript.enable = false;
+            null-ls.enable = true;
+            trouble.enable = true;
+            rename.enable = true;
+          };
+          surround.enable = true;
+          telescope.enable = true;
+          theme = {
+            enable = true;
+            name = "catppuccin";
+            flavour = "macchiato";
+          };
+          treesitter = {
+            enable = true;
+            autotag.enable = true;
+            context.enable = false;
+            rainbow.enable = true;
+          };
+          visuals = {
+            icons.enable = true;
+            cursorWordline.enable = true;
+            indentBlankline = {
               enable = true;
-              autotag.enable = true;
-              context.enable = false;
-              rainbow.enable = true;
-            };
-            visuals = {
-              icons.enable = true;
-              cursorWordline.enable = true;
-              indentBlankline = {
-                enable = true;
-
-              };
             };
           };
         };
-      in
-      rec {
-        apps = rec {
-          lvim = {
-            type = "app";
-            program = "${packages.default}/bin/nvim";
-          };
-          default = lvim;
+      };
+    in rec {
+      apps = rec {
+        lvim = {
+          type = "app";
+          program = "${packages.default}/bin/nvim";
         };
+        default = lvim;
+      };
 
-        overlays.default = super: self: {
-          inherit (lib) mkNeovim;
-          inherit (pkgs) neovimPlugins;
-          lvim = packages.lvim;
-        };
+      overlays.default = super: self: {
+        inherit (lib) mkNeovim;
+        inherit (pkgs) neovimPlugins;
+        lvim = packages.lvim;
+      };
 
-        packages = rec {
-          default = lvim;
-          lvim = lib.mkNeovim { inherit config; };
-        };
+      packages = rec {
+        default = lvim;
+        lvim = lib.mkNeovim {inherit config;};
+      };
 
-        devShells.default = pkgs.mkShell {
-          packages = [ packages.lvim ];
-        };
-      });
+      devShells.default = pkgs.mkShell {
+        packages = [packages.lvim];
+      };
+    });
 }

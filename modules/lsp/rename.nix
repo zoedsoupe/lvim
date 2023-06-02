@@ -1,15 +1,17 @@
-{ lib, pkgs, config, ... }:
-
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.lvim.lsp;
   rename = cfg.enable && cfg.rename.enable;
-in
-{
+in {
   options.lvim.lsp.rename.enable = mkEnableOption "Enables LSP rename plugins";
 
   config.lvim = mkIf rename {
-    startPlugins = with pkgs.neovimPlugins; [ inc-rename ];
+    startPlugins = with pkgs.neovimPlugins; [inc-rename];
     nnoremap = {
       "<leader>rn" = ":IncRename";
     };

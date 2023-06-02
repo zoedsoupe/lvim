@@ -1,12 +1,14 @@
-{ lib, config, pkgs, ... }:
-
-let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   inherit (lib) types mkOption writeIf boolStr;
   inherit (types) bool str int enum listOf;
 
   cfg = config.lvim;
-in
-{
+in {
   options.lvim = {
     colourTerm = mkOption {
       default = true;
@@ -27,7 +29,7 @@ in
     };
 
     completeOpt = mkOption {
-      default = [ ];
+      default = [];
       description = "Completions options";
       type = listOf str;
     };
@@ -59,7 +61,7 @@ in
     lineNumberMode = mkOption {
       default = "relNumber";
       description = "How line numbers are displayed. none relative number relNumber";
-      type = enum [ "relative" "number" "relNumber" "none" ];
+      type = enum ["relative" "number" "relNumber" "none"];
     };
 
     tabWidth = mkOption {
@@ -118,7 +120,7 @@ in
   };
 
   config.lvim = {
-    startPlugins = with pkgs.neovimPlugins; [ lazy-nvim plenary-nvim ];
+    startPlugins = with pkgs.neovimPlugins; [lazy-nvim plenary-nvim];
     rawConfig = ''
       -- BASIC CONFIG
 
@@ -127,16 +129,20 @@ in
       vim.o.cmdheight = ${toString cfg.cmdHeight}
       vim.o.termguicolors = ${toString cfg.colourTerm}
       ${writeIf (cfg.lineNumberMode == "number") ''
-      vim.wo.number = true
+        vim.wo.number = true
       ''}
       ${writeIf (cfg.lineNumberMode == "relative") ''
-      vim.wo.relativenumber = true
+        vim.wo.relativenumber = true
       ''}
       ${writeIf (cfg.lineNumberMode == "relNumber") ''
-      vim.wo.number = true
-      vim.wo.relativenumber = true
+        vim.wo.number = true
+        vim.wo.relativenumber = true
       ''}
-      vim.wo.signcolumn = "${if cfg.showSignColumn then "yes" else "no"}"
+      vim.wo.signcolumn = "${
+        if cfg.showSignColumn
+        then "yes"
+        else "no"
+      }"
 
       -- behaviour
       vim.o.hlsearch = ${boolStr cfg.hlSearch}
@@ -148,8 +154,8 @@ in
       vim.o.splitright = ${boolStr cfg.splitRight}
       vim.o.mouse = "${toString cfg.mouseSupport}"
       ${writeIf cfg.mapLeaderSpace ''
-      vim.g.mapleader = " "
-      vim.g.maplocalleader = ","
+        vim.g.mapleader = " "
+        vim.g.maplocalleader = ","
       ''}
 
       -- vim specific

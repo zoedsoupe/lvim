@@ -1,10 +1,12 @@
-{ pkgs, config, lib, ... }:
-
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkEnableOption mkOption mkIf types withPlugins;
   cfg = config.lvim.git;
-in
-{
+in {
   options.lvim.git = {
     enable = mkEnableOption "Enable git managent and visuals";
     gitsigns.enable = mkOption {
@@ -14,7 +16,7 @@ in
   };
 
   config.lvim = mkIf cfg.enable {
-    startPlugins = with pkgs.neovimPlugins; withPlugins cfg.gitsigns.enable [ gitsigns-nvim ];
+    startPlugins = with pkgs.neovimPlugins; withPlugins cfg.gitsigns.enable [gitsigns-nvim];
     nnoremap = {
       "<leader>gs" = "<cmd>Gitsigns stage_hunk<CR>";
       "<leader>gu" = "<cmd>Gitsigns undo_stage_hunk<CR>";

@@ -1,10 +1,12 @@
-{ pkgs, lib, config, ... }:
-
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.lvim.autopair;
-in
-{
+in {
   options.lvim.autopair.enable = mkEnableOption "Enable autopairing";
 
   config.lvim = mkIf cfg.enable {

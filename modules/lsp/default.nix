@@ -1,20 +1,23 @@
-{ lib, config, pkgs, ... }:
-
-let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.lvim.lsp;
-in
-{
-  imports = [ ./clojure.nix ./dart.nix ./elixir.nix ./nix.nix ./nullls.nix ./rename.nix ./rust.nix ./trouble.nix ./typescript.nix ];
+in {
+  imports = [./clojure.nix ./dart.nix ./elixir.nix ./nix.nix ./nullls.nix ./rename.nix ./rust.nix ./trouble.nix ./typescript.nix];
 
   options.lvim.lsp.enable = mkEnableOption "Enables programming languages support";
 
   config.lvim = mkIf cfg.enable {
-    startPlugins = with pkgs.neovimPlugins; [ nvim-lspconfig ];
+    startPlugins = with pkgs.neovimPlugins; [nvim-lspconfig];
     nnoremap = mkIf cfg.enable {
       # need remapping optitons...
       # and also accept csutom options [ev].buf
-      /* "<leader>gD" = "<cmd>lua  vim.lsp.buf.declaration";
+      /*
+         "<leader>gD" = "<cmd>lua  vim.lsp.buf.declaration";
       "<leader>gd" = "<cmd>lua vim.lsp.buf.definition";
       "<leader>K" = "<cmd>lua vim.lsp.buf.hover";
       "<leader>gi" = "<cmd>lua vim.lsp.buf.implementation";
@@ -26,7 +29,8 @@ in
       "<leader>rn" = "<cmd>lua vim.lsp.buf.rename";
       "<leader>v" = "<cmd>lua vim.lsp.buf.code_action";
       "<leader>gr" = "<cmd>lua vim.lsp.buf.references";
-      "<leader>f" = "<cmd>lua vim.lsp.buf.format { async = true }"; */
+      "<leader>f" = "<cmd>lua vim.lsp.buf.format { async = true }";
+      */
 
       "<leader>e" = "<cmd>lua vim.diagnostic.open_float";
       "<leader>[d" = "<cmd>lua vim.diagnostic.goto_prev";

@@ -1,16 +1,18 @@
-{ lib, pkgs, config, ... }:
-
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf writeIf;
   cfg = config.lvim.lsp;
   rust = cfg.enable && cfg.rust.enable;
   completion = config.lvim.completion.enable && cfg.enable;
-in
-{
+in {
   options.lvim.lsp.rust.enable = mkEnableOption "Enables Rust support plugins";
 
   config.lvim = mkIf rust {
-    startPlugins = with pkgs.neovimPlugins; [ rust-tools ];
+    startPlugins = with pkgs.neovimPlugins; [rust-tools];
     nnoremap = {
       "<silent><leader>ri" = "<cmd>lua require('rust-tools.inlay_hints').toggle_inlay_hints()<CR>";
       "<silent><leader>rr" = "<cmd>lua require('rust-tools.runnables').runnables()<CR>";
@@ -30,8 +32,8 @@ in
         },
         server = {
           ${writeIf completion ''
-          capabilities = require("cmp_nvim_lsp").default_capabilities(),,
-          ''}
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),,
+      ''}
           cmd = {"${pkgs.rust-analyzer}/bin/rust-analyzer"},
         }
       }
