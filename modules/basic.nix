@@ -120,55 +120,57 @@ in {
   };
 
   config.lvim = {
-    startPlugins = with pkgs.neovimPlugins; [lazy-nvim plenary-nvim];
+    startPlugins = with pkgs.neovimPlugins; [plenary-nvim];
     rawConfig = ''
-      -- BASIC CONFIG
+         -- BASIC CONFIG
 
-      -- visual
-      vim.o.conceallevel = ${toString cfg.concealLevel}
-      vim.o.cmdheight = ${toString cfg.cmdHeight}
-      vim.o.termguicolors = ${toString cfg.colourTerm}
-      ${writeIf (cfg.lineNumberMode == "number") ''
+         -- visual
+         vim.o.conceallevel = ${toString cfg.concealLevel}
+         vim.o.cmdheight = ${toString cfg.cmdHeight}
+         vim.o.termguicolors = ${toString cfg.colourTerm}
+         ${writeIf (cfg.lineNumberMode == "number") ''
         vim.wo.number = true
       ''}
-      ${writeIf (cfg.lineNumberMode == "relative") ''
+         ${writeIf (cfg.lineNumberMode == "relative") ''
         vim.wo.relativenumber = true
       ''}
-      ${writeIf (cfg.lineNumberMode == "relNumber") ''
+         ${writeIf (cfg.lineNumberMode == "relNumber") ''
         vim.wo.number = true
         vim.wo.relativenumber = true
       ''}
-      vim.wo.signcolumn = "${
+         vim.wo.signcolumn = "${
         if cfg.showSignColumn
         then "yes"
         else "no"
       }"
 
-      -- behaviour
-      vim.o.hlsearch = ${boolStr cfg.hlSearch}
-      vim.o.smartindent = ${boolStr cfg.autoIndent}
-      vim.o.tabstop = ${toString cfg.tabWidth}
-      vim.o.softtabstop = ${toString cfg.tabWidth}
-      vim.o.shiftwidth = ${toString cfg.tabWidth}
-      vim.o.splitbelow = ${boolStr cfg.splitBelow}
-      vim.o.splitright = ${boolStr cfg.splitRight}
-      vim.o.mouse = "${toString cfg.mouseSupport}"
-      ${writeIf cfg.mapLeaderSpace ''
+         -- behaviour
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+         vim.o.hlsearch = ${boolStr cfg.hlSearch}
+         vim.o.smartindent = ${boolStr cfg.autoIndent}
+         vim.o.tabstop = ${toString cfg.tabWidth}
+         vim.o.softtabstop = ${toString cfg.tabWidth}
+         vim.o.shiftwidth = ${toString cfg.tabWidth}
+         vim.o.splitbelow = ${boolStr cfg.splitBelow}
+         vim.o.splitright = ${boolStr cfg.splitRight}
+         vim.o.mouse = "${toString cfg.mouseSupport}"
+         ${writeIf cfg.mapLeaderSpace ''
         vim.g.mapleader = " "
         vim.g.maplocalleader = ","
       ''}
 
-      -- vim specific
-      vim.o.hidden = true
-      vim.o.fileencoding = "utf-8"
-      vim.o.completeopt = "menuone,noinsert,noselect"
-      vim.o.wildmode = "longest,full"
-      vim.o.updatetime = ${toString cfg.mapTimeout}
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-      vim.g.so = 999
+         -- vim specific
+         vim.o.hidden = true
+         vim.o.fileencoding = "utf-8"
+         vim.o.completeopt = "menuone,noinsert,noselect"
+         vim.o.wildmode = "longest,full"
+         vim.o.updatetime = ${toString cfg.mapTimeout}
+         vim.g.loaded_netrw = 1
+         vim.g.loaded_netrwPlugin = 1
+         vim.g.so = 999
 
-      -- END BASIC CONFIG
+         -- END BASIC CONFIG
     '';
   };
 }

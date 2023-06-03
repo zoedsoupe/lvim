@@ -56,31 +56,7 @@ in {
         pname = name;
         version = last (splitString "/" (attrByPath [name "url"] "HEAD" inputs));
         src = getAttr name inputs;
-        postPatch =
-          if (name == "nvim-treesitter")
-          then ''
-            rm -r parser
-            ln -s ${treesitterGrammars} parser
-          ''
-          else "";
       };
-    treesitterGrammars = pkgs.tree-sitter.withPlugins (p:
-      with p; [
-        tree-sitter-bash
-        tree-sitter-c
-        tree-sitter-css
-        tree-sitter-dockerfile
-        tree-sitter-elixir
-        tree-sitter-html
-        tree-sitter-javascript
-        tree-sitter-json
-        tree-sitter-lua
-        tree-sitter-nix
-        tree-sitter-rust
-        tree-sitter-toml
-        tree-sitter-typescript
-        tree-sitter-yaml
-      ]);
   in {
     neovimPlugins = listToAttrs (map
       (name: {

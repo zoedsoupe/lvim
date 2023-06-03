@@ -32,10 +32,10 @@ in {
       "<leader>f" = "<cmd>lua vim.lsp.buf.format { async = true }";
       */
 
-      "<leader>e" = "<cmd>lua vim.diagnostic.open_float";
-      "<leader>[d" = "<cmd>lua vim.diagnostic.goto_prev";
-      "<leader>]d" = "<cmd>lua vim.diagnostic.goto_next";
-      "<leader>q" = "<cmd>lua vim.diagnostic.setloclist";
+      "<leader>e" = "<cmd>lua vim.diagnostic.open_float<cr>";
+      "<leader>[d" = "<cmd>lua vim.diagnostic.goto_prev<cr>";
+      "<leader>]d" = "<cmd>lua vim.diagnostic.goto_next<cr>";
+      "<leader>q" = "<cmd>lua vim.diagnostic.setloclist<cr>";
     };
     rawConfig = ''
       -- LSP CONFIG

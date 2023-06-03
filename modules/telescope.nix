@@ -4,20 +4,25 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf withAttrSet;
+  inherit (lib) mkEnableOption mkIf withAttrSet writeIf withPlugins;
   cfg = config.lvim.telescope;
 in {
-  options.lvim.telescope.enable = mkEnableOption "Enables Telescope GUI";
+  options.lvim.telescope = {
+    enable = mkEnableOption "Enables Telescope GUI";
+    file_browser.enable = mkEnableOption "Enables Telescope file browser";
+  };
 
   config.lvim = mkIf cfg.enable {
-    startPlugins = with pkgs.neovimPlugins; [telescope-nvim];
+    startPlugins = with pkgs.neovimPlugins; (
+      (withPlugins cfg.file_browser.enable [telescope-file-browser])
+      ++ [telescope-nvim]
+    );
     nnoremap =
       {
         "<leader>ff" = "<cmd> Telescope find_files<CR>";
         "<leader>fg" = "<cmd> Telescope live_grep<CR>";
         "<leader>fb" = "<cmd> Telescope buffers<CR>";
         "<leader>fh" = "<cmd> Telescope help_tags<CR>";
-        "<leader>ft" = "<cmd> Telescope<CR>";
 
         "<leader>fvcw" = "<cmd> Telescope git_commits<CR>";
         "<leader>fvcb" = "<cmd> Telescope git_bcommits<CR>";
@@ -40,24 +45,32 @@ in {
         withAttrSet config.lvim.treesitter.enable {
           "<leader>fs" = "<cmd> Telescope treesitter<CR>";
         }
+      )
+      // (
+        withAttrSet cfg.file_browser.enable {
+          "<leader>ft" = "<cmd> Telescope file_browser<CR>";
+        }
       );
     rawConfig = ''
-      -- TELESCOPE CONFIG
-      require('telescope').setup({
-        defaults = {
-          vimgrep_arguments = {
-            "${pkgs.silver-searcher}/bin/ag",
-            "--smart-case",
-            "--nocolor",
-            "--noheading",
-            "--column",
-          },
-          pickers = {
-            find_command = { "${pkgs.fd}/bin/fd" }
-          }
-        }
-      })
-      -- END TELESCOPE CONFIG
+         -- TELESCOPE CONFIG
+         require('telescope').setup({
+           defaults = {
+             vimgrep_arguments = {
+               "${pkgs.silver-searcher}/bin/ag",
+               "--smart-case",
+               "--nocolor",
+               "--noheading",
+               "--column",
+             },
+             pickers = {
+               find_command = { "${pkgs.fd}/bin/fd" }
+             }
+           }
+         })
+      ${writeIf cfg.file_browser.enable ''
+        require("telescope").load_extension("file_browser")
+      ''}
+         -- END TELESCOPE CONFIG
     '';
   };
 }

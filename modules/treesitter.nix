@@ -5,10 +5,15 @@
   ...
 }: let
   inherit (pkgs) neovimPlugins;
-  inherit (lib) mkEnableOption mkIf withPlugins writeIf;
+  inherit (lib) mkEnableOption mkIf withPlugins writeIf mkOption types;
   cfg = config.lvim.treesitter;
 in {
   options.lvim.treesitter = {
+    grammars = mkOption {
+      description = "Grammars packages";
+      type = types.listOf types.str;
+      default = [];
+    };
     enable = mkEnableOption "Enables tree-sitter [nvim-treesitter]";
     autotag.enable = mkEnableOption "Enables auto tagging";
     context.enable = mkEnableOption "Enables block context";
@@ -18,9 +23,9 @@ in {
   config.lvim = mkIf cfg.enable {
     startPlugins = with neovimPlugins; (
       (withPlugins cfg.autotag.enable [nvim-ts-autotag])
-      ++ (withPlugins cfg.autotag.enable [nvim-ts-context])
-      ++ (withPlugins cfg.autotag.enable [nvim-ts-rainbow])
-      ++ [nvim-ts]
+      ++ (withPlugins cfg.context.enable [nvim-ts-context])
+      ++ (withPlugins cfg.rainbow.enable [nvim-ts-rainbow])
+      ++ [(pkgs.vimPlugins.nvim-treesitter.withPlugins (p: map (g: p.${g}) cfg.grammars))]
     );
     globals = {
       "foldmethod" = "expr";

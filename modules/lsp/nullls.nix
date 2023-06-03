@@ -19,62 +19,79 @@ in {
   config.lvim = mkIf nullls {
     startPlugins = with pkgs.neovimPlugins; [null-ls];
     rawConfig = ''
-      -- NULL LS CONFIG
-      local null_ls = require('null-ls')
-      local sources = {
-        ${writeIf ts ''
+      	 -- NULL LS CONFIG
+      	 local null_ls = require('null-ls')
+      	 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+      	 local sources = {
+      		 ${writeIf ts ''
         null_ls.builtins.formatting.prettier.with({
-          cmd = {"${pkgs.nodePackages.prettier}/bin/prettier"},
+        	cmd = {"${pkgs.nodePackages.prettier}/bin/prettier"},
         }),
         null_ls.builtins.code_actions.eslint_d.with({
-          cmd = {"${pkgs.nodePackages.eslint_d}/bin/eslint_d"},
+        	cmd = {"${pkgs.nodePackages.eslint_d}/bin/eslint_d"},
         }),
         null_ls.builtins.diagnostics.tsc.with({
-          cmd = {"${pkgs.nodePackages.tsc}/bin/tsc"},
+        	cmd = {"${pkgs.nodePackages.tsc}/bin/tsc"},
         }),
       ''}
-        ${writeIf clojure ''
+      		 ${writeIf clojure ''
         null_ls.builtins.diagnostics.clj_kondo.with({
-          cmd = {"${pkgs.clj-kondo}/bin/clj-kondo"},
+        	cmd = {"${pkgs.clj-kondo}/bin/clj-kondo"},
         }),
         null_ls.builtins.formatting.joker.with({
-          cmd = {"${pkgs.joker}/bin/joker"}
+        	cmd = {"${pkgs.joker}/bin/joker"}
         }),
       ''}
-        ${writeIf nix ''
+      		 ${writeIf nix ''
         null_ls.builtins.code_actions.statix.with({
-          cmd = {"${pkgs.statix}/bin/statix"},
+        	cmd = {"${pkgs.statix}/bin/statix"},
         }),
         null_ls.builtins.diagnostics.deadnix.with({
-          cmd = {"${pkgs.deadnix}/bin/deadnix"},
+        	cmd = {"${pkgs.deadnix}/bin/deadnix"},
         }),
         null_ls.builtins.formatting.nixpkgs_fmt.with({
-          cmd = {"${pkgs.nixpkgs-fmt}/bin/nixpkgs_fmt"}
+        	cmd = {"${pkgs.alejandra}/bin/alejandra"}
         }),
       ''}
-        ${writeIf elixir ''
+      		 ${writeIf elixir ''
         null_ls.builtins.diagnostics.credo.with({
-          cmd = {"${pkgs.elixir}/bin/mix"}
+        	cmd = {"${pkgs.elixir}/bin/mix"}
         }),
         null_ls.builtins.formatting.mix.with({
-          cmd = {"${pkgs.elixir}/bin/mix"}
+        	cmd = {"${pkgs.elixir}/bin/mix"}
         }),
       ''}
-        ${writeIf dart ''
+      		 ${writeIf dart ''
         null_ls.builtins.formatting.dart_format.with({
-          cmd = {"${pkgs.dart}/bin/dart"}
+        	cmd = {"${pkgs.dart}/bin/dart"}
         }),
       ''}
-        ${writeIf rust ''
+      		 ${writeIf rust ''
         null_ls.builtins.formatting.rustfmt.with({
-          cmd = {"${pkgs.rustfmt}/bin/rustfmt"}
+        	cmd = {"${pkgs.rustfmt}/bin/rustfmt"}
         }),
       ''}
-        null_ls.builtins.formatting.trim_whitespace.with({
-          cmd = {"${pkgs.gawk}/bin/gawk"}
-        }),
-      }
-      -- END NULL LS CONFIG
+      		 null_ls.builtins.formatting.trim_whitespace.with({
+      			 cmd = {"${pkgs.gawk}/bin/gawk"}
+      		 }),
+      	 }
+      null_ls.setup({
+      	sources = sources,
+      	on_attach = function(client, bufnr)
+      					if client.supports_method("textDocument/formatting") then
+      							vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      							vim.api.nvim_create_autocmd("BufWritePre", {
+      									group = augroup,
+      									buffer = bufnr,
+      									callback = function()
+      											vim.lsp.buf.format({ bufnr = bufnr })
+      											-- vim.lsp.buf.formatting_sync()
+      									end,
+      							})
+      					end
+      			end
+      })
+      	 -- END NULL LS CONFIG
     '';
   };
 }

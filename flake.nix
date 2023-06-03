@@ -16,6 +16,11 @@
       flake = false;
     };
 
+    hlargs = {
+      url = "github:m-demare/hlargs.nvim";
+      flake = false;
+    };
+
     inc-rename = {
       url = "github:smjonas/inc-rename.nvim";
       flake = false;
@@ -31,8 +36,8 @@
       flake = false;
     };
 
-    lazy-nvim = {
-      url = "github:folke/lazy.nvim/v9.20.0";
+    legendary = {
+      url = "github:mrjones2014/legendary.nvim";
       flake = false;
     };
 
@@ -43,6 +48,26 @@
 
     luasnip = {
       url = "github:L3MON4D3/LuaSnip";
+      flake = false;
+    };
+
+    matchup = {
+      url = "github:andymass/vim-matchup";
+      flake = false;
+    };
+
+    material-icons = {
+      url = "github:DaikyXendo/nvim-material-icon";
+      flake = false;
+    };
+
+    noice = {
+      url = "github:folke/noice.nvim";
+      flake = false;
+    };
+
+    nui-nvim = {
+      url = "github:MunifTanjim/nui.nvim";
       flake = false;
     };
 
@@ -101,13 +126,13 @@
       flake = false;
     };
 
-    nvim-tree-lua = {
-      url = "github:kyazdani42/nvim-tree.lua";
+    nvim-notify = {
+      url = "github:rcarriga/nvim-notify";
       flake = false;
     };
 
-    nvim-ts = {
-      url = "github:nvim-treesitter/nvim-treesitter";
+    nvim-tree-lua = {
+      url = "github:kyazdani42/nvim-tree.lua";
       flake = false;
     };
 
@@ -151,6 +176,16 @@
       flake = false;
     };
 
+    tabout = {
+      url = "github:abecodes/tabout.nvim";
+      flake = false;
+    };
+
+    telescope-file-browser = {
+      url = "github:nvim-telescope/telescope-file-browser.nvim";
+      flake = false;
+    };
+
     telescope-nvim = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
@@ -181,6 +216,11 @@
       flake = false;
     };
 
+    vim-illuminate = {
+      url = "github:RRethy/vim-illuminate";
+      flake = false;
+    };
+
     vim-sexp = {
       url = "github:guns/vim-sexp";
       flake = false;
@@ -188,6 +228,11 @@
 
     vim-sexp-mappings = {
       url = "github:tpope/vim-sexp-mappings-for-regular-people";
+      flake = false;
+    };
+
+    which-key = {
+      url = "github:folke/which-key.nvim";
       flake = false;
     };
   };
@@ -231,7 +276,7 @@
               source = "luasnip";
             };
           };
-          filetree.enable = true;
+          filetree.enable = false;
           git = {
             enable = true;
             gitsigns.enable = true;
@@ -249,7 +294,10 @@
             rename.enable = true;
           };
           surround.enable = true;
-          telescope.enable = true;
+          telescope = {
+            enable = true;
+            file_browser.enable = true;
+          };
           theme = {
             enable = true;
             name = "catppuccin";
@@ -260,6 +308,38 @@
             autotag.enable = true;
             context.enable = false;
             rainbow.enable = true;
+            grammars = [
+              "clojure"
+              "css"
+              "dart"
+              "dockerfile"
+              "eex"
+              "elixir"
+              "fish"
+              "graphql"
+              "heex"
+              "html"
+              "json"
+              "lua"
+              "markdown"
+              "nix"
+              "rust"
+              "scss"
+              "toml"
+              "typescript"
+              "vim"
+              "yaml"
+            ];
+          };
+          ui = {
+            enable = true;
+            word_highlight.enable = true;
+            semantic_highlightment.enable = true;
+            matchup.enable = false;
+            which_key.enable = true;
+            legendary.enable = false;
+            noice.enable = false;
+            tabout.enable = false;
           };
           visuals = {
             icons.enable = true;

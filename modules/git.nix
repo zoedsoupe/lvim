@@ -36,11 +36,14 @@ in {
       "<leader>gs" = ":Gitsigns stage_hunk<CR>";
     };
     rawConfig = mkIf cfg.gitsigns.enable ''
-      -- GITSIGNS
-      require('gitsigns').setup {
-        keymaps = { noremap = true },
-      }
-      -- END GITSIGNS
+        -- GITSIGNS
+        require('gitsigns').setup {
+          keymaps = { noremap = true },
+      watch_gitdir = { interval = 100, follow_files = true },
+      current_line_blame = true,
+      update_debounce = 50,
+        }
+        -- END GITSIGNS
     '';
   };
 }

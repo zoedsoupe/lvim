@@ -42,7 +42,7 @@ in {
 
   config.lvim = mkIf cfg.enable {
     startPlugins = with pkgs.neovimPlugins; (
-      (withPlugins cfg.icons.enable [nvim-web-devicons])
+      (withPlugins cfg.icons.enable [nvim-web-devicons material-icons])
       ++ (withPlugins cfg.cursorWordline.enable [nvim-cursorline])
       ++ (withPlugins cfg.indentBlankline.enable [indent-blankline])
     );
@@ -50,7 +50,12 @@ in {
       cursorline_timeout = toString cfg.cursorWordline.lineTimeout;
     };
     rawConfig = ''
-      ${writeIf cfg.indentBlankline.enable ''
+      ${writeIf cfg.icons.enable ''
+        require('nvim-web-devicons').setup({
+        	override = require('nvim-material-icon').get_icons()
+        })
+      ''}
+         ${writeIf cfg.indentBlankline.enable ''
         vim.wo.colorcolumn = "99999"
         vim.opt.list = true
         ${writeIf (cfg.indentBlankline.eolChar != "") ''

@@ -12,6 +12,7 @@
     ./telescope.nix
     ./theme.nix
     ./treesitter.nix
+    ./ui.nix
     ./visuals.nix
   ];
 }

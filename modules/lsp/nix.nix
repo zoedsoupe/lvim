@@ -13,14 +13,15 @@ in {
 
   config.lvim = mkIf nix {
     rawConfig = ''
-      -- NIX LSP CONFIG
-      require('lspconfig').nil_ls.setup({
-        ${writeIf completion ''
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        -- NIX LSP CONFIG
+      local nix_caps = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), require('cmp_nvim_lsp').default_capabilities())
+        require('lspconfig').nil_ls.setup({
+          ${writeIf completion ''
+        capabilities = nix_caps,
       ''}
-        cmd = {"${pkgs.nil}/bin/nil"}
-      })
-      -- END NIX LSP CONFIG
+          cmd = {"${pkgs.nil}/bin/nil"}
+        })
+        -- END NIX LSP CONFIG
     '';
   };
 }

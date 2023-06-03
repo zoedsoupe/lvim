@@ -129,7 +129,7 @@ in {
 
   config.lvim = let
     inherit (lib) mapAttrsFlatten;
-    inherit (lib.strings) concatStrings toLower trim;
+    inherit (lib.strings) concatStrings toLower;
     inherit (lib.lists) flatten;
     inherit (builtins) concatStringsSep toJSON;
     mapOpts = o: concatStrings (flatten ["{" (mapAttrsFlatten (k: v: "${k} = ${boolStr v},") o) "}"]);
@@ -189,8 +189,6 @@ in {
       ''
       + "lua << EOF\n"
       + ''
-        ${cfg.rawConfig}
-
         -- KEYBIDINGS
         local map = vim.api.nvim_set_keymap
         ${concatStringsSep "\n" nmap}
@@ -210,6 +208,8 @@ in {
         -- AUGROUPS AND AUTOCMDS
         ${concatStringsSep "\n" groups}
         -- ENDAUGROUPS AND AUTOCMDS
+
+        ${cfg.rawConfig}
       ''
       + "\nEOF";
   };
