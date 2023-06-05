@@ -237,14 +237,15 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    ...
-  } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system: let
-      lib = import ./lib.nix {inherit pkgs inputs;};
+  outputs =
+    { self
+    , nixpkgs
+    , flake-utils
+    , ...
+    } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system:
+    let
+      lib = import ./lib.nix { inherit pkgs inputs; };
 
       inherit
         (import ./overlays.nix {
@@ -300,8 +301,8 @@
           };
           theme = {
             enable = true;
-            name = "catppuccin";
-            flavour = "macchiato";
+            name = "doom-one";
+            # flavour = "moon";
           };
           treesitter = {
             enable = true;
@@ -350,7 +351,8 @@
           };
         };
       };
-    in rec {
+    in
+    rec {
       apps = rec {
         lvim = {
           type = "app";
@@ -367,11 +369,11 @@
 
       packages = rec {
         default = lvim;
-        lvim = lib.mkNeovim {inherit config;};
+        lvim = lib.mkNeovim { inherit config; };
       };
 
       devShells.default = pkgs.mkShell {
-        packages = [packages.lvim];
+        packages = [ packages.lvim ];
       };
     });
 }
