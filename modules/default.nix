@@ -8,6 +8,7 @@
     ./filetree.nix
     ./git.nix
     ./lsp
+    ./statusline.nix
     ./surround.nix
     ./telescope.nix
     ./theme.nix

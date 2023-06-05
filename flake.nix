@@ -46,6 +46,11 @@
       flake = false;
     };
 
+    lualine = {
+      url = "github:nvim-lualine/lualine.nvim";
+      flake = false;
+    };
+
     luasnip = {
       url = "github:L3MON4D3/LuaSnip";
       flake = false;
@@ -294,6 +299,7 @@
             trouble.enable = true;
             rename.enable = true;
           };
+          statusline.enable = true;
           surround.enable = true;
           telescope = {
             enable = true;
