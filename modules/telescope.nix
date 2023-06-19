@@ -49,6 +49,7 @@ in {
       // (
         withAttrSet cfg.file_browser.enable {
           "<leader>ft" = "<cmd> Telescope file_browser<CR>";
+          "<leader>ftc" = "<cmd> Telescope file_browser path=%:p:h select_buffer=true <CR>";
         }
       );
     rawConfig = ''

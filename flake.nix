@@ -166,6 +166,11 @@
       flake = false;
     };
 
+    oil-nvim = {
+      url = "github:stevearc/oil.nvim";
+      flake = false;
+    };
+
     plenary-nvim = {
       url = "github:nvim-lua/plenary.nvim/v0.1.3";
       flake = false;
@@ -281,7 +286,10 @@
               source = "luasnip";
             };
           };
-          filetree.enable = false;
+          filetree = {
+            enable = false;
+            vinegar-style.enable = true;
+          };
           git = {
             enable = true;
             gitsigns.enable = true;
@@ -305,7 +313,7 @@
           surround.enable = true;
           telescope = {
             enable = true;
-            file_browser.enable = true;
+            file_browser.enable = false;
           };
           theme = {
             enable = true;

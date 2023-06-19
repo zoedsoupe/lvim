@@ -563,6 +563,22 @@
         "type": "github"
       }
     },
+    "oil-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686965087,
+        "narHash": "sha256-6Tf3MMEA5TdiAanb9+emd8OmMtg3YmPgDFl1oEFjkq4=",
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "rev": "6f8bf067c09e96d6bff548b5e6addb6d9c25a678",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "type": "github"
+      }
+    },
     "plenary-nvim": {
       "flake": false,
       "locked": {
@@ -617,6 +633,7 @@
         "nvim-ts-context": "nvim-ts-context",
         "nvim-ts-rainbow": "nvim-ts-rainbow",
         "nvim-web-devicons": "nvim-web-devicons",
+        "oil-nvim": "oil-nvim",
         "plenary-nvim": "plenary-nvim",
         "rust-tools": "rust-tools",
         "tabout": "tabout",
