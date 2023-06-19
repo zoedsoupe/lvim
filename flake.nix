@@ -66,6 +66,11 @@
       flake = false;
     };
 
+    nixd = {
+      url = "github:nix-community/nixd";
+      flake = true;
+    };
+
     noice = {
       url = "github:folke/noice.nvim";
       flake = false;
@@ -297,9 +302,14 @@
           lsp = {
             enable = true;
             clojure.enable = true;
+            css.enable = true;
             dart.enable = true;
             elixir.enable = true;
-            nix.enable = true;
+            nix = {
+              enable = true;
+							nil.enable = true;
+              nixd.enable = false;
+            };
             rust.enable = false;
             typescript.enable = false;
             null-ls.enable = true;

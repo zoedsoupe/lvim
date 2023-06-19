@@ -7,7 +7,7 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.lvim.lsp;
 in {
-  imports = [./clojure.nix ./dart.nix ./elixir.nix ./nix.nix ./nullls.nix ./rename.nix ./rust.nix ./trouble.nix ./typescript.nix];
+  imports = [./clojure.nix ./css.nix ./dart.nix ./elixir.nix ./nix.nix ./nullls.nix ./rename.nix ./rust.nix ./trouble.nix ./typescript.nix];
 
   options.lvim.lsp.enable = mkEnableOption "Enables programming languages support";
 
