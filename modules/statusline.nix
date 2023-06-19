@@ -1,15 +1,23 @@
-{ pkgs, lib, config, ... }:
-
-let
-  inherit (lib) mkEnableOption mkIf;
-  cfg = config.lvim.statusline;
-in
-
 {
-  options.lvim.statusline.enable = mkEnableOption "Enables lua line plugin";
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib) mkEnableOption mkIf mkOption types;
+  cfg = config.lvim.statusline;
+in {
+  options.lvim.statusline = {
+    enable = mkEnableOption "Enables lua line plugin";
+    theme = mkOption {
+      description = "The statusline theme";
+      type = types.enum ["auto" "catppuccin"];
+      default = "auto";
+    };
+  };
 
   config.lvim = mkIf cfg.enable {
-    startPlugins = with pkgs.neovimPlugins; [ lualine ];
+    startPlugins = with pkgs.neovimPlugins; [lualine];
     # TODO: create options parameters to customize the statusline
     rawConfig = ''
       -- LUALINE CONFIG
@@ -89,7 +97,7 @@ in
       require("lualine").setup {
         options = {
           icons_enabled = true,
-          theme = "auto",
+          theme = ${cfg.theme},
           section_separators = "",
           component_separators = "",
           disabled_filetypes = {},

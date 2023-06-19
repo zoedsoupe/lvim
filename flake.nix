@@ -242,15 +242,14 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , flake-utils
-    , ...
-    } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-    let
-      lib = import ./lib.nix { inherit pkgs inputs; };
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    ...
+  } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system: let
+      lib = import ./lib.nix {inherit pkgs inputs;};
 
       inherit
         (import ./overlays.nix {
@@ -299,7 +298,10 @@
             trouble.enable = true;
             rename.enable = true;
           };
-          statusline.enable = true;
+          statusline = {
+            enable = true;
+            theme = "catppuccin";
+          };
           surround.enable = true;
           telescope = {
             enable = true;
@@ -307,8 +309,11 @@
           };
           theme = {
             enable = true;
-            name = "doom-one";
-            # flavour = "moon";
+            name = "catppuccin";
+            flavour = {
+              dark = "frappe";
+              light = "latte";
+            };
           };
           treesitter = {
             enable = true;
@@ -357,8 +362,7 @@
           };
         };
       };
-    in
-    rec {
+    in rec {
       apps = rec {
         lvim = {
           type = "app";
@@ -375,11 +379,11 @@
 
       packages = rec {
         default = lvim;
-        lvim = lib.mkNeovim { inherit config; };
+        lvim = lib.mkNeovim {inherit config;};
       };
 
       devShells.default = pkgs.mkShell {
-        packages = [ packages.lvim ];
+        packages = [packages.lvim];
       };
     });
 }
