@@ -104,21 +104,20 @@ in {
       ++ (withPlugins cfg.vinegar-style.enable [oil-nvim])
       ++ []
     );
-    nnoremap =
-      (withAttrSet cfg.enable {
-        "<C-F>" = ":NvimTreeToggle<CR>";
-        "<C-s>" = ":NvimTreeFindFile<CR>";
-        "<leader>tr" = ":NvimTreeRefresh<CR>";
-      });
+    nnoremap = withAttrSet cfg.enable {
+      "<C-F>" = ":NvimTreeToggle<CR>";
+      "<C-s>" = ":NvimTreeFindFile<CR>";
+      "<leader>tr" = ":NvimTreeRefresh<CR>";
+    };
     rawConfig = ''
          -- FILETREE CONFIG
       ${writeIf cfg.vinegar-style.enable ''
-            require("oil").setup({
-        	default_file_explorer = true,
-        	use_default_keymaps = true,
-        	columns = {"icon"};
-        })
-				vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+                require("oil").setup({
+            	default_file_explorer = true,
+            	use_default_keymaps = true,
+            	columns = {"icon"};
+            })
+        vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
       ''}
          ${writeIf cfg.enable ''
         require'nvim-tree'.setup({

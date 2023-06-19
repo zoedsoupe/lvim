@@ -25,56 +25,71 @@ in {
       	 local sources = {
       		 ${writeIf ts ''
         null_ls.builtins.formatting.prettier.with({
-        	cmd = {"${pkgs.nodePackages.prettier}/bin/prettier"},
+        	command = "${pkgs.nodePackages.prettier}/bin/prettier",
         }),
         null_ls.builtins.code_actions.eslint_d.with({
-        	cmd = {"${pkgs.nodePackages.eslint_d}/bin/eslint_d"},
+        	command = "${pkgs.nodePackages.eslint_d}/bin/eslint_d",
         }),
         null_ls.builtins.diagnostics.tsc.with({
-        	cmd = {"${pkgs.nodePackages.tsc}/bin/tsc"},
+        	command = "${pkgs.nodePackages.tsc}/bin/tsc",
         }),
       ''}
       		 ${writeIf clojure ''
         null_ls.builtins.diagnostics.clj_kondo.with({
-        	cmd = {"${pkgs.clj-kondo}/bin/clj-kondo"},
+        	command = "${pkgs.clj-kondo}/bin/clj-kondo",
         }),
         null_ls.builtins.formatting.joker.with({
-        	cmd = {"${pkgs.joker}/bin/joker"}
+        	command = "${pkgs.joker}/bin/joker"
         }),
       ''}
       		 ${writeIf nix ''
         null_ls.builtins.code_actions.statix.with({
-        	cmd = {"${pkgs.statix}/bin/statix"},
+        	command = "${pkgs.statix}/bin/statix",
         }),
         null_ls.builtins.diagnostics.deadnix.with({
-        	cmd = {"${pkgs.deadnix}/bin/deadnix"},
+        	command = "${pkgs.deadnix}/bin/deadnix",
         }),
-        null_ls.builtins.formatting.nixpkgs_fmt.with({
-        	cmd = {"${pkgs.alejandra}/bin/alejandra"}
+        null_ls.builtins.formatting.alejandra.with({
+        	command = "${pkgs.alejandra}/bin/alejandra"
         }),
       ''}
       		 ${writeIf elixir ''
         null_ls.builtins.diagnostics.credo.with({
-        	cmd = {"${pkgs.elixir}/bin/mix"}
+        	command = "${pkgs.elixir}/bin/mix"
         }),
         null_ls.builtins.formatting.mix.with({
-        	cmd = {"${pkgs.elixir}/bin/mix"}
+        	command = "${pkgs.elixir}/bin/mix"
         }),
       ''}
       		 ${writeIf dart ''
         null_ls.builtins.formatting.dart_format.with({
-        	cmd = {"${pkgs.dart}/bin/dart"}
+        	command = "${pkgs.dart}/bin/dart"
         }),
       ''}
       		 ${writeIf rust ''
         null_ls.builtins.formatting.rustfmt.with({
-        	cmd = {"${pkgs.rustfmt}/bin/rustfmt"}
+        	command = "${pkgs.rustfmt}/bin/rustfmt"
         }),
       ''}
-      		 null_ls.builtins.formatting.trim_whitespace.with({
-      			 cmd = {"${pkgs.gawk}/bin/gawk"}
-      		 }),
-      	 }
+			 null_ls.builtins.formatting.trim_whitespace.with({
+				 command = "${pkgs.gawk}/bin/gawk"
+			 }),
+			 null_ls.builtins.diagnostics.alex.with({
+				command = "${pkgs.nodePackages.alex}/bin/alex"
+				}),
+				null_ls.builtins.diagnostics.hadolint.with({
+					command = "${pkgs.hadolint}/bin/hadolint"
+				}),
+				null_ls.builtins.diagnostics.stylelint.with({
+					command = "${pkgs.nodePackages.stylelint}/bin/stylelint"
+				}),
+				null_ls.builtins.formatting.stylelint.with({
+					command = "${pkgs.nodePackages.stylelint}/bin/stylelint"
+				}),
+				null_ls.builtins.code_actions.gitsigns,
+				null_ls.builtins.completion.luasnip,
+
+      }
       null_ls.setup({
       	sources = sources,
       	on_attach = function(client, bufnr)
