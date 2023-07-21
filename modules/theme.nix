@@ -31,7 +31,7 @@ in {
       dark = mkOption {
         description = "Dark variant of theme style required";
         type = let
-          rp = enum' "rose-pine" ["main" "dawn"];
+          rp = enum' "rose-pine" ["main" "moon"];
           cp = types.enum ["frappe" "macchiato" "mocha"];
         in
           rp cp;
@@ -40,7 +40,7 @@ in {
       light = mkOption {
         description = "Light variant theme style";
         type = let
-          rp = enum' "rose-pine" ["moon"];
+          rp = enum' "rose-pine" ["dawn"];
           cp = types.enum ["latte"];
         in
           types.nullOr (rp cp);

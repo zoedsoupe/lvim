@@ -313,7 +313,7 @@
           };
           statusline = {
             enable = true;
-            theme = "catppuccin";
+            theme = "auto";
           };
           surround.enable = true;
           telescope = {
@@ -322,10 +322,10 @@
           };
           theme = {
             enable = true;
-            name = "catppuccin";
+            name = "rose-pine";
             flavour = {
-              dark = "frappe";
-              light = "latte";
+              dark = "moon";
+              light = "dawn";
             };
           };
           treesitter = {
