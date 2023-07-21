@@ -52,22 +52,6 @@
         "type": "github"
       }
     },
-    "friendly-snippets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1686960410,
-        "narHash": "sha256-Tr4/uHpWdRqz17Outyptz0r7Q8g4hfLi4/22paqzkY8=",
-        "owner": "rafamadriz",
-        "repo": "friendly-snippets",
-        "rev": "70b727d3454cceb3a818b1746be09786568b7e33",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rafamadriz",
-        "repo": "friendly-snippets",
-        "type": "github"
-      }
-    },
     "gitsigns-nvim": {
       "flake": false,
       "locked": {
@@ -671,7 +655,6 @@
       "inputs": {
         "conjure": "conjure",
         "flake-utils": "flake-utils",
-        "friendly-snippets": "friendly-snippets",
         "gitsigns-nvim": "gitsigns-nvim",
         "hlargs": "hlargs",
         "inc-rename": "inc-rename",

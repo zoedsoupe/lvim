@@ -34,7 +34,7 @@ in {
       ++ (withPlugins cfg.cmdline.enable [nvim-cmp-cmdline])
       ++ (withPlugins cfg.lsp.enable [nvim-cmp-lsp])
       ++ (withPlugins (cfg.lsp.enable && cfg.lsp.lspkind.enable) [lspkind])
-      ++ (withPlugins isluasnip [nvim-cmp-lsp luasnip friendly-snippets])
+      ++ (withPlugins isluasnip [nvim-cmp-lsp luasnip])
       ++ [nvim-cmp]
     );
     rawConfig = ''

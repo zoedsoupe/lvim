@@ -11,11 +11,6 @@
       flake = false;
     };
 
-    friendly-snippets = {
-      url = "github:rafamadriz/friendly-snippets";
-      flake = false;
-    };
-
     hlargs = {
       url = "github:m-demare/hlargs.nvim";
       flake = false;
@@ -307,7 +302,7 @@
             elixir.enable = true;
             nix = {
               enable = true;
-							nil.enable = true;
+              nil.enable = true;
               nixd.enable = false;
             };
             rust.enable = false;
