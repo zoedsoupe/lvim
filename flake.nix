@@ -11,6 +11,11 @@
       flake = false;
     };
 
+    copilot = {
+      url = "github:github/copilot.vim";
+      flake = false;
+    };
+
     hlargs = {
       url = "github:m-demare/hlargs.nvim";
       flake = false;
@@ -248,7 +253,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     flake-utils,
     ...
@@ -324,7 +328,7 @@
             enable = true;
             name = "rose-pine";
             flavour = {
-              dark = "moon";
+              dark = "main";
               light = "dawn";
             };
           };
@@ -384,7 +388,7 @@
         default = lvim;
       };
 
-      overlays.default = super: self: {
+      overlays.default = _super: _self: {
         inherit (lib) mkNeovim;
         inherit (pkgs) neovimPlugins;
         lvim = packages.lvim;

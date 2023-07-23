@@ -131,14 +131,11 @@ in {
 
       ${writeIf (cfg.name == "rose-pine") ''
         -- ROSE PINE THEME
-        	require('rose-pine').setup({
-        			variant = 'auto',
-        			darkvariant = "${cfg.flavour.dark}",
-        			${writeIf (cfg.flavour.light != null) ''
-          lightvariant = "${cfg.flavour.light}"
-        ''}
-        			})
-        vim.cmd('colo rose-pine')
+        	require("rose-pine").setup({
+        			variant = "auto",
+        			dark_variant = "${cfg.flavour.dark}",
+        	})
+        vim.cmd("colo rose-pine")
         	-- END ROSE PINE THEME
       ''}
     '';

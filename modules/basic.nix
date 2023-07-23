@@ -120,7 +120,7 @@ in {
   };
 
   config.lvim = {
-    startPlugins = with pkgs.neovimPlugins; [plenary-nvim];
+    startPlugins = with pkgs.neovimPlugins; [plenary-nvim copilot];
     rawConfig = ''
           -- BASIC CONFIG
 
