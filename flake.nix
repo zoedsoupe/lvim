@@ -216,6 +216,11 @@
       flake = false;
     };
 
+    theme-gruvbox = {
+      url = "github:sainnhe/gruvbox-material";
+      flake = false;
+    };
+
     theme-rose-pine = {
       url = "github:rose-pine/neovim/v1.2.0";
       flake = false;
@@ -326,11 +331,7 @@
           };
           theme = {
             enable = true;
-            name = "rose-pine";
-            flavour = {
-              dark = "main";
-              light = "dawn";
-            };
+            name = "gruvbox";
           };
           treesitter = {
             enable = true;

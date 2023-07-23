@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkOption types writeIf withPlugins mkIf;
+  inherit (lib) mkEnableOption mkOption types writeIf withPlugins mkIf withAttrSet;
   cfg = config.lvim.theme;
   git = config.lvim.git;
   telescope = config.lvim.telescope;
@@ -24,7 +24,7 @@ in {
     enable = mkEnableOption "Enable theme customization";
     name = mkOption {
       description = "Name of the theme to use";
-      type = types.enum ["doom-one" "rose-pine" "catppuccin"];
+      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox"];
       default = "catppuccin";
     };
     flavour = {
@@ -54,16 +54,23 @@ in {
       (withPlugins (cfg.name == "doom-one") [theme-doom-one])
       ++ (withPlugins (cfg.name == "rose-pine") [theme-rose-pine])
       ++ (withPlugins (cfg.name == "catppuccin") [theme-catppuccin])
+      ++ (withPlugins (cfg.name == "gruvbox") [theme-gruvbox])
     );
-    globals = mkIf (cfg.name == "doom-one") {
-      doom_one_terminal_colors = true;
-      doom_one_plugin_whichkey = true;
-      doom_one_plugin_indent_blankline = true;
-      doom_one_plugin_telescope = true;
-      doom_one_plugin_vim_illuminate = true;
-    };
+    globals =
+      mkIf (cfg.name == "doom-one") {
+        doom_one_terminal_colors = true;
+        doom_one_plugin_whichkey = true;
+        doom_one_plugin_indent_blankline = true;
+        doom_one_plugin_telescope = true;
+        doom_one_plugin_vim_illuminate = true;
+      }
+      // (withAttrSet (cfg.name == "gruvbox") {
+        gruvbox_material_better_performance = 1;
+        # create a custom parameter for this
+        gruvbox_material_background = "soft";
+      });
     rawConfig = ''
-          		${writeIf (cfg.name == "catppuccin") ''
+             		${writeIf (cfg.name == "catppuccin") ''
         			-- CATPPUCCIN THEME
         			require('catppuccin').setup({
         				flavour = "${cfg.flavour.dark}",
@@ -128,6 +135,8 @@ in {
       ''}
 
       ${writeIf (cfg.name == "doom-one") "vim.cmd('colo doom-one')"}
+
+      ${writeIf (cfg.name == "gruvbox") "vim.cmd('colo gruvbox-material')"}
 
       ${writeIf (cfg.name == "rose-pine") ''
         -- ROSE PINE THEME

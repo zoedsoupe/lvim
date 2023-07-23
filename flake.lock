@@ -713,6 +713,7 @@
         "telescope-nvim": "telescope-nvim",
         "theme-catppuccin": "theme-catppuccin",
         "theme-doom-one": "theme-doom-one",
+        "theme-gruvbox": "theme-gruvbox",
         "theme-rose-pine": "theme-rose-pine",
         "trouble-nvim": "trouble-nvim",
         "typescript-nvim": "typescript-nvim",
@@ -831,6 +832,22 @@
       "original": {
         "owner": "NTBBloodbath",
         "repo": "doom-one.nvim",
+        "type": "github"
+      }
+    },
+    "theme-gruvbox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1682363710,
+        "narHash": "sha256-S6hCVeDl7qlLHeQPx439Tb2lfJlguSVPSWFo8zC5Bwg=",
+        "owner": "sainnhe",
+        "repo": "gruvbox-material",
+        "rev": "3fff63b0d6a425ad1076a260cd4f6da61d1632b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sainnhe",
+        "repo": "gruvbox-material",
         "type": "github"
       }
     },
