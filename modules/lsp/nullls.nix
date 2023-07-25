@@ -80,12 +80,6 @@ in {
       null_ls.builtins.diagnostics.hadolint.with({
       	command = "${pkgs.hadolint}/bin/hadolint"
       }),
-      null_ls.builtins.diagnostics.stylelint.with({
-      	command = "${pkgs.nodePackages.stylelint}/bin/stylelint"
-      }),
-      null_ls.builtins.formatting.stylelint.with({
-      	command = "${pkgs.nodePackages.stylelint}/bin/stylelint"
-      }),
       null_ls.builtins.code_actions.gitsigns,
       null_ls.builtins.completion.luasnip,
 

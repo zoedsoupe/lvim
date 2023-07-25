@@ -126,6 +126,11 @@
       flake = false;
     };
 
+    nvim-colorizer = {
+      url = "github:norcalli/nvim-colorizer.lua";
+      flake = false;
+    };
+
     nvim-elixir = {
       url = "github:elixir-editors/vim-elixir";
       flake = false;
