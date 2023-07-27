@@ -120,7 +120,7 @@ in {
   };
 
   config.lvim = {
-    startPlugins = with pkgs.neovimPlugins; [plenary-nvim copilot];
+    startPlugins = with pkgs.neovimPlugins; [plenary-nvim copilot earthly-vim];
     rawConfig = ''
           -- BASIC CONFIG
 

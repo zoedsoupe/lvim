@@ -16,6 +16,11 @@
       flake = false;
     };
 
+    earthly-vim = {
+      url = "github:earthly/earthly.vim";
+      flake = false;
+    };
+
     hlargs = {
       url = "github:m-demare/hlargs.nvim";
       flake = false;
