@@ -12,7 +12,7 @@ nix run github:zoedsoupe/lvim#apps.<system>.lvim
 
 Where `<system>` is your system architecture.
 
-## Add to NIx Flake project
+## Add to Nix Flake project
 
 You can use this config in your personal nix config using the overlay provieded, as:
 
@@ -26,8 +26,8 @@ You can use this config in your personal nix config using the overlay provieded,
     outputs = { lvim, ... }:
         let
             overlays = [ lvim.overlays."${system}".default ];
-        in 
-        { 
+        in
+        {
             # ...
         };
 }

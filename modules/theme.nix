@@ -74,13 +74,10 @@ in {
                 		${writeIf (cfg.name == "catppuccin") ''
         			-- CATPPUCCIN THEME
         			require('catppuccin').setup({
-        				flavour = "${cfg.flavour.dark}",
-        	${writeIf (cfg.flavour.light != null) ''
                   background = {
           	light = "${cfg.flavour.light}",
           	dark = "${cfg.flavour.dark}",
           },
-        ''}
         	integrations = {
         		${writeIf completion.enable ''
           cmp = true,
