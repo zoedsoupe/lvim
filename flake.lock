@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "earthly-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650649012,
+        "narHash": "sha256-KOlYUXasMYHMUY8uthiwPh2uLZaQSI76anJD0W1+qes=",
+        "owner": "earthly",
+        "repo": "earthly.vim",
+        "rev": "9402908f41c5165fa69317da9fe1c47ea5f9e5dd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "earthly",
+        "repo": "earthly.vim",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -687,6 +703,7 @@
       "inputs": {
         "conjure": "conjure",
         "copilot": "copilot",
+        "earthly-vim": "earthly-vim",
         "flake-utils": "flake-utils",
         "gitsigns-nvim": "gitsigns-nvim",
         "hlargs": "hlargs",
@@ -730,6 +747,7 @@
         "telescope-nvim": "telescope-nvim",
         "theme-catppuccin": "theme-catppuccin",
         "theme-doom-one": "theme-doom-one",
+        "theme-dracula-pro": "theme-dracula-pro",
         "theme-gruvbox": "theme-gruvbox",
         "theme-rose-pine": "theme-rose-pine",
         "trouble-nvim": "trouble-nvim",
@@ -850,6 +868,22 @@
         "owner": "NTBBloodbath",
         "repo": "doom-one.nvim",
         "type": "github"
+      }
+    },
+    "theme-dracula-pro": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690804456,
+        "narHash": "sha256-jUCQMfICbpAtqKtWZ60SSWFwZcrrv54gl85DG1hF+Hk=",
+        "ref": "refs/heads/main",
+        "rev": "bfe5d63fc72862cd80110d35db0d19d4151f0e6e",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/zoedsoupe/dracula-pro-vim"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/zoedsoupe/dracula-pro-vim"
       }
     },
     "theme-gruvbox": {

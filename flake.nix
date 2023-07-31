@@ -226,6 +226,11 @@
       flake = false;
     };
 
+    theme-dracula-pro = {
+      url = "git+ssh://git@github.com/zoedsoupe/dracula-pro-vim";
+      flake = false;
+    };
+
     theme-gruvbox = {
       url = "github:sainnhe/gruvbox-material";
       flake = false;
@@ -341,7 +346,11 @@
           };
           theme = {
             enable = true;
-            name = "gruvbox";
+            name = "rose-pine";
+            flavour = {
+              light = "dawn";
+              dark = "moon";
+            };
           };
           treesitter = {
             enable = true;

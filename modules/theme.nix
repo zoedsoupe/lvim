@@ -24,7 +24,7 @@ in {
     enable = mkEnableOption "Enable theme customization";
     name = mkOption {
       description = "Name of the theme to use";
-      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox"];
+      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox" "dracula-pro"];
       default = "catppuccin";
     };
     flavour = {
@@ -55,6 +55,7 @@ in {
       ++ (withPlugins (cfg.name == "rose-pine") [theme-rose-pine])
       ++ (withPlugins (cfg.name == "catppuccin") [theme-catppuccin])
       ++ (withPlugins (cfg.name == "gruvbox") [theme-gruvbox])
+      ++ (withPlugins (cfg.name == "dracula-pro") [theme-dracula-pro])
     );
     globals =
       mkIf (cfg.name == "doom-one") {
@@ -70,7 +71,7 @@ in {
         gruvbox_material_background = "soft";
       });
     rawConfig = ''
-             		${writeIf (cfg.name == "catppuccin") ''
+                		${writeIf (cfg.name == "catppuccin") ''
         			-- CATPPUCCIN THEME
         			require('catppuccin').setup({
         				flavour = "${cfg.flavour.dark}",
@@ -133,6 +134,8 @@ in {
         vim.cmd('colo catppuccin')
         	-- END CATPPUCCIN THEME
       ''}
+
+      ${writeIf (cfg.name == "dracula-pro") "vim.cmd('colo dracula_pro')"}
 
       ${writeIf (cfg.name == "doom-one") "vim.cmd('colo doom-one')"}
 
