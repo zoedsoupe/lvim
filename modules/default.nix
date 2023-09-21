@@ -15,5 +15,6 @@
     ./treesitter.nix
     ./ui.nix
     ./visuals.nix
+    ./zen_mode.nix
   ];
 }
