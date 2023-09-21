@@ -246,6 +246,11 @@
       flake = false;
     };
 
+    true-zen-nvim = {
+      url = "github:pocco81/true-zen.nvim";
+      flake = false;
+    };
+
     typescript-nvim = {
       url = "github:jose-elias-alvarez/typescript.nvim";
       flake = false;
@@ -294,6 +299,7 @@
 
       config = {
         lvim = {
+          zen-mode.enable = true;
           autopair.enable = true;
           comments.enable = true;
           completion = {
