@@ -21,6 +21,11 @@
       flake = false;
     };
 
+    elixir-tools = {
+      url = "github:elixir-tools/elixir-tools.nvim";
+      flake = false;
+    };
+
     hlargs = {
       url = "github:m-demare/hlargs.nvim";
       flake = false;
@@ -69,6 +74,11 @@
     material-icons = {
       url = "github:DaikyXendo/nvim-material-icon";
       flake = false;
+    };
+
+    next-ls = {
+      url = "github:elixir-tools/next-ls";
+      flake = true;
     };
 
     nixd = {
@@ -236,6 +246,11 @@
       flake = false;
     };
 
+    theme-mellifluous = {
+      url = "github:ramojus/mellifluous.nvim";
+      flake = false;
+    };
+
     theme-rose-pine = {
       url = "github:rose-pine/neovim/v1.2.0";
       flake = false;
@@ -352,11 +367,7 @@
           };
           theme = {
             enable = true;
-            name = "rose-pine";
-            flavour = {
-              light = "dawn";
-              dark = "moon";
-            };
+            name = "gruvbox";
           };
           treesitter = {
             enable = true;

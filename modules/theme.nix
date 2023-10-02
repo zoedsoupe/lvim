@@ -24,7 +24,7 @@ in {
     enable = mkEnableOption "Enable theme customization";
     name = mkOption {
       description = "Name of the theme to use";
-      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox" "dracula-pro"];
+      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox" "dracula-pro" "mellifluous"];
       default = "catppuccin";
     };
     flavour = {
@@ -56,6 +56,7 @@ in {
       ++ (withPlugins (cfg.name == "catppuccin") [theme-catppuccin])
       ++ (withPlugins (cfg.name == "gruvbox") [theme-gruvbox])
       ++ (withPlugins (cfg.name == "dracula-pro") [theme-dracula-pro])
+      ++ (withPlugins (cfg.name == "mellifluous") [theme-mellifluous])
     );
     globals =
       mkIf (cfg.name == "doom-one") {
@@ -71,7 +72,7 @@ in {
         gruvbox_material_background = "soft";
       });
     rawConfig = ''
-                		${writeIf (cfg.name == "catppuccin") ''
+                   		${writeIf (cfg.name == "catppuccin") ''
         			-- CATPPUCCIN THEME
         			require('catppuccin').setup({
                   background = {
@@ -132,13 +133,13 @@ in {
         	-- END CATPPUCCIN THEME
       ''}
 
-      ${writeIf (cfg.name == "dracula-pro") "vim.cmd('colo dracula_pro')"}
+         ${writeIf (cfg.name == "dracula-pro") "vim.cmd('colo dracula_pro')"}
 
-      ${writeIf (cfg.name == "doom-one") "vim.cmd('colo doom-one')"}
+         ${writeIf (cfg.name == "doom-one") "vim.cmd('colo doom-one')"}
 
-      ${writeIf (cfg.name == "gruvbox") "vim.cmd('colo gruvbox-material')"}
+         ${writeIf (cfg.name == "gruvbox") "vim.cmd('colo gruvbox-material')"}
 
-      ${writeIf (cfg.name == "rose-pine") ''
+         ${writeIf (cfg.name == "rose-pine") ''
         -- ROSE PINE THEME
         	require("rose-pine").setup({
         			variant = "auto",
@@ -146,6 +147,25 @@ in {
         	})
         vim.cmd("colo rose-pine")
         	-- END ROSE PINE THEME
+      ''}
+
+      ${writeIf (cfg.name == "mellifluous") ''
+        -- MELLIFLUOUS THEME
+        require("mellifluous").setup({
+        	color_set = "mellifluous",
+        	plugins = {
+        		${writeIf git.enable "gitsigns = true,"}
+        		${writeIf indent.enable "indent_blankline = true,"}
+        		${writeIf lsp.enable "cmp = true,"}
+        		${writeIf telescope.enable ''
+          telescope = {
+          	enabled = true,
+          	nvchad_like = true,
+          },
+        ''}
+        	}
+        		})
+        -- END MELLIFLUOUS THEME
       ''}
     '';
   };
