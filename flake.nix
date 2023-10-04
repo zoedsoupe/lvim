@@ -46,11 +46,6 @@
       flake = false;
     };
 
-    legendary = {
-      url = "github:mrjones2014/legendary.nvim";
-      flake = false;
-    };
-
     lspkind = {
       url = "github:onsails/lspkind.nvim";
       flake = false;
@@ -63,11 +58,6 @@
 
     luasnip = {
       url = "github:L3MON4D3/LuaSnip";
-      flake = false;
-    };
-
-    matchup = {
-      url = "github:andymass/vim-matchup";
       flake = false;
     };
 
@@ -86,18 +76,8 @@
       flake = true;
     };
 
-    noice = {
-      url = "github:folke/noice.nvim";
-      flake = false;
-    };
-
-    nui-nvim = {
-      url = "github:MunifTanjim/nui.nvim";
-      flake = false;
-    };
-
     null-ls = {
-      url = "github:jose-elias-alvarez/null-ls.nvim";
+      url = "github:nvimtools/none-ls.nvim";
       flake = false;
     };
 
@@ -156,11 +136,6 @@
       flake = false;
     };
 
-    nvim-notify = {
-      url = "github:rcarriga/nvim-notify";
-      flake = false;
-    };
-
     nvim-tree-lua = {
       url = "github:kyazdani42/nvim-tree.lua";
       flake = false;
@@ -208,11 +183,6 @@
 
     rust-tools = {
       url = "github:simrat39/rust-tools.nvim";
-      flake = false;
-    };
-
-    tabout = {
-      url = "github:abecodes/tabout.nvim";
       flake = false;
     };
 
@@ -403,9 +373,6 @@
             semantic_highlightment.enable = true;
             matchup.enable = false;
             which_key.enable = true;
-            legendary.enable = false;
-            noice.enable = false;
-            tabout.enable = false;
           };
           visuals = {
             icons.enable = true;
