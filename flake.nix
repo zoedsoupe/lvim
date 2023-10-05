@@ -26,6 +26,16 @@
       flake = false;
     };
 
+    goyo-vim = {
+      url = "github:junegunn/goyo.vim";
+      flake = false;
+    };
+
+    limelight-vim = {
+      url = "github:junegunn/limelight.vim";
+      flake = false;
+    };
+
     hlargs = {
       url = "github:m-demare/hlargs.nvim";
       flake = false;
@@ -284,7 +294,12 @@
 
       config = {
         lvim = {
-          zen-mode.enable = true;
+          zen-mode = {
+            enable = true;
+            goyo.enable = true;
+            limelight.enable = true;
+            true-zen.enable = false;
+          };
           autopair.enable = true;
           comments.enable = true;
           completion = {
@@ -371,7 +386,6 @@
             enable = true;
             word_highlight.enable = true;
             semantic_highlightment.enable = true;
-            matchup.enable = false;
             which_key.enable = true;
           };
           visuals = {
