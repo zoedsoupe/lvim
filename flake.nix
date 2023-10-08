@@ -226,6 +226,11 @@
       flake = false;
     };
 
+    theme-melange = {
+      url = "github:savq/melange-nvim";
+      flake = false;
+    };
+
     theme-mellifluous = {
       url = "github:ramojus/mellifluous.nvim";
       flake = false;
@@ -352,7 +357,7 @@
           };
           theme = {
             enable = true;
-            name = "gruvbox";
+            name = "melange";
           };
           treesitter = {
             enable = true;

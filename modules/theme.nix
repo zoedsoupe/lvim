@@ -24,7 +24,7 @@ in {
     enable = mkEnableOption "Enable theme customization";
     name = mkOption {
       description = "Name of the theme to use";
-      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox" "dracula-pro" "mellifluous"];
+      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox" "dracula-pro" "mellifluous" "melange"];
       default = "catppuccin";
     };
     flavour = {
@@ -57,6 +57,7 @@ in {
       ++ (withPlugins (cfg.name == "gruvbox") [theme-gruvbox])
       ++ (withPlugins (cfg.name == "dracula-pro") [theme-dracula-pro])
       ++ (withPlugins (cfg.name == "mellifluous") [theme-mellifluous])
+      ++ (withPlugins (cfg.name == "melange") [theme-melange])
     );
     globals =
       mkIf (cfg.name == "doom-one") {
@@ -147,6 +148,13 @@ in {
         	})
         vim.cmd("colo rose-pine")
         	-- END ROSE PINE THEME
+      ''}
+
+      ${writeIf (cfg.name == "melange") ''
+      -- MELANGE THEME
+      vim.opt.termguicolors = true
+      vim.cmd.colorscheme 'melange'
+      -- END MELENAGE THEME
       ''}
 
       ${writeIf (cfg.name == "mellifluous") ''
