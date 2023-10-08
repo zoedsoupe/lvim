@@ -24,7 +24,7 @@ in {
     enable = mkEnableOption "Enable theme customization";
     name = mkOption {
       description = "Name of the theme to use";
-      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox" "dracula-pro" "mellifluous" "melange"];
+      type = types.enum ["doom-one" "rose-pine" "catppuccin" "gruvbox" "dracula-pro" "mellifluous" "melange" "enfocado"];
       default = "catppuccin";
     };
     flavour = {
@@ -58,6 +58,7 @@ in {
       ++ (withPlugins (cfg.name == "dracula-pro") [theme-dracula-pro])
       ++ (withPlugins (cfg.name == "mellifluous") [theme-mellifluous])
       ++ (withPlugins (cfg.name == "melange") [theme-melange])
+      ++ (withPlugins (cfg.name == "enfocado") [theme-enfocado])
     );
     globals =
       mkIf (cfg.name == "doom-one") {
@@ -153,7 +154,7 @@ in {
       ${writeIf (cfg.name == "melange") ''
       -- MELANGE THEME
       vim.opt.termguicolors = true
-      vim.cmd.colorscheme 'melange'
+      vim.cmd.colorscheme = 'melange'
       -- END MELENAGE THEME
       ''}
 
@@ -174,6 +175,14 @@ in {
         	}
         		})
         -- END MELLIFLUOUS THEME
+      ''}
+
+      ${writeIf (cfg.name == "enfocado") ''
+      -- ENFOCADO THEME
+      vim.g.enfocado_style = 'neon'
+      vim.g.enfocado_plugins = {"cmp", "gitsigns", "illuminate", "indent-blankline", "null-ls", "telescope", "treesitter"}
+      vim.cmd.colorscheme = "enfocado"
+      -- END ENFOCADO THEME
       ''}
     '';
   };

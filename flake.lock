@@ -747,6 +747,7 @@
         "theme-catppuccin": "theme-catppuccin",
         "theme-doom-one": "theme-doom-one",
         "theme-dracula-pro": "theme-dracula-pro",
+        "theme-enfocado": "theme-enfocado",
         "theme-gruvbox": "theme-gruvbox",
         "theme-melange": "theme-melange",
         "theme-mellifluous": "theme-mellifluous",
@@ -870,6 +871,22 @@
       "original": {
         "type": "git",
         "url": "ssh://git@github.com/zoedsoupe/dracula-pro-vim"
+      }
+    },
+    "theme-enfocado": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689708146,
+        "narHash": "sha256-MNWWiCaj4/nz2mQw5ilKFu90d2o65SqDUAXCCVEG5rQ=",
+        "owner": "wuelnerdotexe",
+        "repo": "vim-enfocado",
+        "rev": "845835a58d285eb8c1ced5dba83bfdec6e40d828",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wuelnerdotexe",
+        "repo": "vim-enfocado",
+        "type": "github"
       }
     },
     "theme-gruvbox": {

@@ -221,6 +221,11 @@
       flake = false;
     };
 
+    theme-enfocado = {
+      url = "github:wuelnerdotexe/vim-enfocado";
+      flake = false;
+    };
+
     theme-gruvbox = {
       url = "github:sainnhe/gruvbox-material";
       flake = false;
@@ -357,7 +362,7 @@
           };
           theme = {
             enable = true;
-            name = "melange";
+            name = "enfocado";
           };
           treesitter = {
             enable = true;
